@@ -1,6 +1,6 @@
 ---
 layout: archive
-title: "Experience"
+title: "CV"
 author_profile: true
 redirect_from:
   - /resume
