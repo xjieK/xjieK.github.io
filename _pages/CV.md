@@ -18,4 +18,5 @@ Match
 * 1. The 14th National College Student E-commerce "Innovation, Creativity and Entrepreneurship" Challenge Macau University of Science and Technology
      * Awards: 1st place in the 2nd prize
 * 2. FinTech Trailblazers Competition 2024
+     * The preliminary stage is underway
 
