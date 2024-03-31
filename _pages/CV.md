@@ -15,9 +15,9 @@ Education
 
 Match
 ======
-* 1. The 14th National College Student E-commerce "Innovation, Creativity and Entrepreneurship" Challenge Macau University of Science and Technology
+* 1. [The 14th National College Student E-commerce "Innovation, Creativity and Entrepreneurship" Challenge Macau University of Science and Technology](https://www.must.edu.mo/cn/cecp/latest/past-events/57290-20240326-3chuang-cn)
      * Awards: 1st place in the 2nd prize
-* 2. FinTech Trailblazers Competition 2024
+* 2. [FinTech Trailblazers Competition 2024](https://www.cityu.edu.hk/sds/fintech/competition.html)
      * The preliminary stage is underway
 
 Research
