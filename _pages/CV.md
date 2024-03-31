@@ -22,4 +22,4 @@ Match
 
 Research
 ======
-* I joined the undergraduate research team of [Faculty of Innovation Engineering](https://www.must.edu.mo/cn/fie), [Macau University of Science and Technology ](https://www.must.edu.mo/cn) Assistant Professor [Junxiang Yang]([https://cfdyang521.github.io/](https://cfdyang521.github.io/blog-post-1/)) on the topic of 3D reconstruction
+* I joined the undergraduate research team of [Faculty of Innovation Engineering](https://www.must.edu.mo/cn/fie), [Macau University of Science and Technology ](https://www.must.edu.mo/cn) Assistant Professor [Junxiang Yang](https://cfdyang521.github.io/blog-post-1/) on the topic of 3D reconstruction
