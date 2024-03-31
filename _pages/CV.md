@@ -22,4 +22,4 @@ Match
 
 Research
 ======
-* I joined the undergraduate research team of Assistant Professor Junxiang Yang on the topic of 3D reconstruction
+* I joined the undergraduate research team of Faculty Innovation Engineering Macau University of Science and Technology Assistant Professor [Junxiang Yang](https://cfdyang521.github.io/) on the topic of 3D reconstruction
