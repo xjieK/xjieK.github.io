@@ -20,3 +20,6 @@ Match
 * 2. FinTech Trailblazers Competition 2024
      * The preliminary stage is underway
 
+Research
+======
+* I joined the undergraduate research team of Assistant Professor Junxiang Yang on the topic of 3D reconstruction
