@@ -15,5 +15,5 @@ Education
 
 Match
 ======
-*The 14th National College Student E-commerce "Innovation, Creativity and Entrepreneurship" Challenge Macau University of Science and Technology
+* The 14th National College Student E-commerce "Innovation, Creativity and Entrepreneurship" Challenge Macau University of Science and Technology
 Awards: Second Prize
