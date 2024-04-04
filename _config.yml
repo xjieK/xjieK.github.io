@@ -211,6 +211,9 @@ collections:
   talks:
     output: true
     permalink: /:collection/:path/
+  Study Notes:
+    output: true
+    permalink: /:collection/:path/
 
 
 # Defaults
