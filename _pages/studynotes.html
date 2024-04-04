@@ -63,16 +63,14 @@ Procedure call/return),
 <li><p>Simplify
 circuit(简化电路，不需要对不同指令格式进行特殊处理来提取操作数)</p></li>
 <li><p>Enable fetch easy</p>
-  <p>Instruction set:</p></li>
-<img src="images/image1.png" alt:"示例图片" />
+  <p>Instruction set: 61 in Lecture 4 of CS230</p></li>
 </ol>
 <h2 id="risc-v">RISC-V</h2>
 <p>RISC-V是一种开发源代码的指令集架构(ISA)，是CS320课程使用的学习工具。</p>
 <p>对于RV32I来说，只有32个32-bit的寄存器(RV64有32个64-bit的寄存器).</p>
 <p>General Purpose Register(GPR)通用寄存器</p>
 <h3 id="程序执行的步骤">程序执行的步骤:</h3>
-<h3 id="section"><img src="images/image2.png" /></h3>
-<ol type="1">
+<ol>
 <li><p>取指</p></li>
 <li><p>解码</p></li>
 <li><p>取操作数</p></li>
@@ -81,8 +79,6 @@ circuit(简化电路，不需要对不同指令格式进行特殊处理来提取
 <li><p>确定下一步指令</p></li>
 </ol>
 <p><strong>RISC-V指令格式</strong></p>
-<p><img src="images/image3.png"
-style="width:8.10625in;height:5.00486in" /></p>
 <p>结合Instruction
 set和RISC-V指令格式可以看出每个类型下具体操作的Opcode都是一样的(除了U-Type和J-Type，U-Type两个操作：LIU和AUIPC需要更多位立即数imm[31:12]，靠Opcode区分，J-Type只有JAL)，而其他类型的不同操作依靠func3区分(除了R-Type，func3只有3-bit，最多表示8个不同的操作，而R-Type有10个操作，所以需要额外一个func7(7-bit)区分)。</p>
 <p>RISC-V指令有几种基本格式，每种格式都是为了满足不同类型操作的需求而设计。这些格式包括:</p>
