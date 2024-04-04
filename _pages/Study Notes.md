@@ -1,3 +1,14 @@
+---
+layout: archive
+title: "Study Notes"
+permalink: /studey notes/
+author_profile: true
+redirect_from:
+  - /resume
+---
+
+{% include base_path %}
+
 # L4: ISA(指令集架构)
 
 ## Review:
