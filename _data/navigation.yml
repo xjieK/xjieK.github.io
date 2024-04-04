@@ -5,9 +5,6 @@ main:
     
   - title: "CV"
     url: /cv/
-    
-  - title: "markdown"
-    url: /markdown/
 
   - title: "Study Notes"
     url: /study notes/
