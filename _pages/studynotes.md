@@ -1,11 +1,11 @@
 ---
-permalink: /studynotes/
+layout: archive
 title: "studynotes"
+permalink: /studynotes/
 author_profile: true
-redirect_from: 
-  - /studynotes/
-  - /studynotes.html
 ---
+
+{% include base_path %}
 
 # L4: ISA(指令集架构)
 
