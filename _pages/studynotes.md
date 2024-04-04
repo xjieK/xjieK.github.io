@@ -1,10 +1,10 @@
 ---
-permalink: /Study Notes/
-title: "Study Notes"
+permalink: /studynotes/
+title: "studynotes"
 author_profile: true
 redirect_from: 
   - /md/
-  - /markdown.html
+  - /studynotes.html
 ---
 
 # L4: ISA(指令集架构)
