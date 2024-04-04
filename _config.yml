@@ -271,6 +271,17 @@ defaults:
       layout: talk
       author_profile: true
       share: true
+  # _Study Notes
+  - scope:
+      path: ""
+      type: Study Notes
+    values:
+      layout: single
+      author_profile: true
+      read_time: true
+      comment: true
+      share: true
+      related: true
 
 
 # Sass/SCSS
