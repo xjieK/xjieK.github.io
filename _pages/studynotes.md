@@ -3,7 +3,7 @@ permalink: /studynotes/
 title: "studynotes"
 author_profile: true
 redirect_from: 
-  - /md/
+  - /studynotes/
   - /studynotes.html
 ---
 
