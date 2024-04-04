@@ -7,257 +7,321 @@ redirect_from:
   - /markdown.html
 ---
 
-## Locations of key files/directories
+# L4: ISA(指令集架构)
 
-* Basic config options: _config.yml
-* Top navigation bar config: _data/navigation.yml
-* Single pages: _pages/
-* Collections of pages are .md or .html files in:
-  * _publications/
-  * _portfolio/
-  * _posts/
-  * _teaching/
-  * _talks/
-* Footer: _includes/footer.html
-* Static files (like PDFs): /files/
-* Profile image (can set in _config.yml): images/profile.png
+## Review:
 
-## Tips and hints
+In the past lectures, we have learned how to ***[represent
+data]{.underline}*** and perform concrete ***[arithmetic
+operations]{.underline}*** on data.
 
-* Name a file ".md" to have it render in markdown, name it ".html" to render in HTML.
-* Go to the [commit list](https://github.com/academicpages/academicpages.github.io/commits/master) (on your repo) to find the last version Github built with Jekyll. 
-  * Green check: successful build
-  * Orange circle: building
-  * Red X: error
-  * No icon: not built
+So the next problem is How to ***[locate these data]{.underline}*** to
+be processed, and how to tell the computer the ***[concrete
+operations]{.underline}*** to be applied on these data?
 
-## Resources
- * [Liquid syntax guide](https://shopify.github.io/liquid/tags/control-flow/)
- * [MathJax Documentation](https://docs.mathjax.org/en/latest/)
+### Problem:
 
-## MathJax 
+1.  **找到数据在哪**
 
-Support for MathJax Version 3.0 is included in the template:
+2.  **"告诉"计算机对这些数据的具体操作**
 
-$$
-\displaylines{
-\nabla \cdot E= \frac{\rho}{\epsilon_0} \\\
-\nabla \cdot B=0 \\\
-\nabla \times E= -\partial_tB \\\
-\nabla \times B  = \mu_0 \left(J + \varepsilon_0 \partial_t E \right)
-}
-$$
+## Concepts of ISA:
 
-The default delimiters of `$$...$$` and `\\[...\\]` are supported for displayed mathematics, while `\\(...\\)` should be used for in-line mathematics (ex., \\(a^2 + b^2 = c^2\\))
+An instruction tells a computer to perform a specific operation, and it
+comprises of multiple binary
+fields.(根据前面的问题，一条指令需要有两个功能：1.
+告诉计算机要进行的操作，2.要对哪些数据操作)
 
-**Note** that since Academic Pages uses Markdown which cases some interference with MathJax and LaTeX for escaping characters and new lines, although [some workarounds exist](https://math.codidact.com/posts/278763/278772#answer-278772).
+**Operands(操作数):** the data to be operated.
 
-## Markdown guide
+> -Source operands
+>
+> -Destination operands
 
-Academic Pages uses [kramdown](https://kramdown.gettalong.org/index.html) for Markdown rendering, which has some differences from other Markdown implementations such as GitHub's. In addition to this guide, please see the [kramdown Syntax page](https://kramdown.gettalong.org/syntax.html) for full documentation.  
+**Opcodes(操作码):** the operation to be applied on the operand.
 
-### Header three
+### An ISA (or architecture) includes:
 
-#### Header four
+1.  A set of instructions.
 
-##### Header five
+2.  A set of programmer visible properties (registers, memory
+    addressing, memory model, I/O, interruption/exception)
 
-###### Header six
+### Three types of instruction:
 
-## Blockquotes
+1.  Computational 计算(Reg-Reg, also called ALU(arithmetic logic
+    unit)instruction)
 
-Single line blockquote:
+2.  Data movement 访存(e.g. load instruction(LW), store instruction(SW)
+    ), **[加载指令(load
+    instruction)]{.underline}**将数据从内存传输到寄存器(register)中，由于**寄存器访问速度远快于内存**，因此通常在进行计算之前，需要先将数据加载到寄存器中。
 
-> Quotes are cool.
+3.  Control flow 控制流(e.g. Conditional branch, Unconditional jump,
+    Procedure call/return),
+    **控制流指令决定了程序中下一条指令执行的是什么。**它跳转到的目的地对应于另一个过程，在被调用过程(被调用者)完成时，它必须
+    返回到调用过程(调用者).
 
-## Tables
+### Program Counter(PC):
 
-### Table 1
+1.  A special register
 
-| Entry            | Item   |                                                              |
-| --------         | ------ | ------------------------------------------------------------ |
-| [John Doe](#)    | 2016   | Description of the item in the list                          |
-| [Jane Doe](#)    | 2019   | Description of the item in the list                          |
-| [Doe Doe](#)     | 2022   | Description of the item in the list                          |
+2.  它是用于跟踪处理器正在执行的当前指令的位置
 
-### Table 2
+    在32位系统中，PC可以寻址2\^32个不同的字节地址，允许直接访问4GB的内存空间。而在64位系统中，它能访问的内存空间更多。
 
-| Header1 | Header2 | Header3 |
-|:--------|:-------:|--------:|
-| cell1   | cell2   | cell3   |
-| cell4   | ce
-ll5   | cell6   |
-|-----------------------------|
-| cell1   | cell2   | cell3   |
-| cell4   | cell5   | cell6   |
-|=============================|
-| Foot1   | Foot2   | Foot3   |
+    在ISA的设计中，操作数的位置在各种指令格式中保持**[一致性]{.underline}**。这意味着无论执行的是**算术指令**、**逻辑指令**还是其他类型的指令，指令中操作数的位置(即编码中的位字段)都是相同的。这种设计有两个主要好处:
 
-## Definition Lists
-
-Definition List Title
-:   Definition list division.
-
-Startup
-:   A startup company or startup is a company or temporary organization designed to search for a repeatable and scalable business model.
-
-#dowork
-:   Coined by Rob Dyrdek and his personal body guard Christopher "Big Black" Boykins, "Do Work" works as a self motivator, to motivating your friends.
-
-Do It Live
-:   I'll let Bill O'Reilly [explain](https://www.youtube.com/watch?v=O_HyZ5aW76c "We'll Do It Live") this one.
-
-## Unordered Lists (Nested)
-
-  * List item one 
-      * List item one 
-          * List item one
-          * List item two
-          * List item three
-          * List item four
-      * List item two
-      * List item three
-      * List item four
-  * List item two
-  * List item three
-  * List item four
-
-## Ordered List (Nested)
-
-  1. List item one 
-      1. List item one 
-          1. List item one
-          2. List item two
-          3. List item three
-          4. List item four
-      2. List item two
-      3. List item three
-      4. List item four
-  2. List item two
-  3. List item three
-  4. List item four
-
-## Buttons
-
-Make any link standout more when applying the `.btn` class.
-
-## Notices
-
-Basic notices or call-outs are supported using the following syntax:
-
-```markdown
-**Watch out!** You can also add notices by appending `{: .notice}` to the line following paragraph.
-{: .notice}
+```{=html}
+<!-- -->
 ```
+1.  Simplify
+    circuit(简化电路，不需要对不同指令格式进行特殊处理来提取操作数)
 
-which wil render as:
+2.  Enable fetch easy
 
-**Watch out!** You can also add notices by appending `{: .notice}` to the line following paragraph.
-{: .notice}
+    ![](images/image1.png)Instruction set:
 
-### Footnotes
+## RISC-V
 
-Footnotes can be useful for clarifying points in the text, or citing information.[^1] Markdown support numeric footnotes, as well as text as long as the values are unique.[^note]
+RISC-V是一种开发源代码的指令集架构(ISA)，是CS320课程使用的学习工具。
 
-```markdown
-This is the regular text.[^1] This is more regular text.[^note]
+对于RV32I来说，只有32个32-bit的寄存器(RV64有32个64-bit的寄存器).
 
-[^1]: This is the footnote itself.
-[^note]: This is another footnote.
-```
+General Purpose Register(GPR)通用寄存器
 
-[^1]: Such as this footnote.
-[^note]: When using text for footnotes markers, no spaces are permitted in the name.
+### 程序执行的步骤:
 
-## HTML Tags
+![](images/image2.png)
 
-### Address Tag
+1.  取指
 
-<address>
-  1 Infinite Loop<br /> Cupertino, CA 95014<br /> United States
-</address>
+2.  解码
 
-### Anchor Tag (aka. Link)
+3.  取操作数
 
-This is an example of a [link](http://github.com "Github").
+4.  执行
 
-### Abbreviation Tag
+5.  存储结果
 
-The abbreviation CSS stands for "Cascading Style Sheets".
+6.  确定下一步指令
 
-*[CSS]: Cascading Style Sheets
+**RISC-V指令格式**
 
-### Cite Tag
+![](images/image3.png)
 
-"Code is poetry." ---<cite>Automattic</cite>
+结合Instruction
+set和RISC-V指令格式可以看出每个类型下具体操作的Opcode都是一样的(除了U-Type和J-Type，U-Type两个操作：LIU和AUIPC需要更多位立即数imm\[31:12\]，靠Opcode区分，J-Type只有JAL)，而其他类型的不同操作依靠func3区分(除了R-Type，func3只有3-bit，最多表示8个不同的操作，而R-Type有10个操作，所以需要额外一个func7(7-bit)区分)。
 
-### Code Tag
+RISC-V指令有几种基本格式，每种格式都是为了满足不同类型操作的需求而设计。这些格式包括:
 
-You will learn later on in these tests that `word-wrap: break-word;` will be your best friend.
+1.  R型: 用于寄存器间的算术和逻辑操作
 
-You can also write larger blocks of code with syntax highlighting supported for some languages, such as Python:
+    Reg-Reg操作，直接在寄存器之间进行数据处理，不涉及立即数或内存访问
 
-```python
-print('Hello World!')
-```
+    1.  **[ADD:将两个寄存器的值相加。]{.underline}**
 
-or R:
+    2.  **[SUB:从一个寄存器的值中减去另一个寄存器的值。]{.underline}**
 
-```R
-print("Hello World!", quote = FALSE)
-```
+    3.  **[AND:执行两个寄存器值之间的位与(AND)操作。]{.underline}**
 
-### Strike Tag
+    4.  **[OR:执行两个寄存器值之间的位或(OR)操作。]{.underline}**
 
-This tag will let you <strike>strikeout text</strike>.
+    5.  **[XOR:执行两个寄存器值之间的位异或(XOR)操作。]{.underline}**
 
-### Emphasize Tag
+    6.  **[SLT(Set Less
+        Than):如果一个寄存器中的值小于另一个寄存器中的值，则将1写入目的寄存器，否则写入0。]{.underline}**
 
-The emphasize tag should _italicize_ text.
+        1.  **[SLT rd, rs1, rs2]{.underline}**
 
-### Insert Tag
+            1.  **[rs1 \< rs2 ? GPR(rd)=1 : GPR(rd)=0
+                如果寄存器rs1中的值小于寄存器rs2中的值，那么目的寄存器rd被设置为1，否则设置为0。([均为有符号数比较]{.mark})]{.underline}**
 
-This tag should denote <ins>inserted</ins> text.
+    7.  **[SLL(Shift Left
+        Logical):[逻辑左移\*]{.mark}，将一个寄存器的值向左移动指定的位数，右边空出的位用0填充。]{.underline}**
 
-### Keyboard Tag
+2.  I型: 单个寄存器与立即数之间的操作
 
-This scarcely known tag emulates <kbd>keyboard text</kbd>, which is usually styled like the `<code>` tag.
+    1.  **[JALR(Jump and Link
+        Register):无条件跳转到由基址寄存器和立即数偏移量确定的地址，同时将下一条指令的地址保存到目的寄存器。常用于实现函数返回。]{.underline}**
 
-### Preformatted Tag
+        1.  **[JALR rd, rs1, imm12]{.underline}**
 
-This tag styles large blocks of code.
+            1.  **[Target=GPR(rs1)+sign-extend(imm12)#计算跳转目标地址]{.underline}**
 
-<pre>
-.post-title {
-  margin: 0 0 5px;
-  font-weight: bold;
-  font-size: 38px;
-  line-height: 1.2;
-  and here's a line of some really, really, really, really long text, just to see how the PRE tag handles it and to find out how it overflows;
-}
-</pre>
+            2.  **[Target&=0xFFFFFFFE#按位与(AND)操作清除目标地址最低位，确保地址按2的倍数对齐([地址对齐\*]{.mark})]{.underline}**
 
-### Quote Tag
+            3.  **[GPR(rd)=PC+4#保存跳转指令的后一条指令]{.underline}**
 
-<q>Developers, developers, developers&#8230;</q> &#8211;Steve Ballmer
+            4.  **[PC\<\--Target#实现无条件跳转]{.underline}**
 
-### Strong Tag
+    2.  **[LB(Load
+        Byte):从内存加载一个字节，并符号扩展到32位，然后存入目的寄存器。]{.underline}**
 
-This tag shows **bold text**.
+        1.  **[LB rd, offset(rs1)]{.underline}**
 
-### Subscript Tag
+            1.  **[MemoryAddress=GPR(rs1)+sign-extend(offset)]{.underline}**
 
-Getting our science styling on with H<sub>2</sub>O, which should push the "2" down.
+            2.  **[从计算出的MemoryAddress处加载一个字节。]{.underline}**
 
-### Superscript Tag
+            3.  **[将这个字节符号扩展到32位或64位(取决于寄存器的位宽)]{.underline}**
 
-Still sticking with science and Isaac Newton's E = MC<sup>2</sup>, which should lift the 2 up.
+            4.  **[最后，将扩展后的值存入目的寄存器rd中。]{.underline}**
 
-### Variable Tag
+    3.  **[LH(Load
+        Half-word):从内存加载半字(两个字节)，并符号扩展到32位，然后存入目的寄存器。]{.underline}**
 
-This allows you to denote <var>variables</var>.
+    4.  **[LBU(Load Byte
+        Unsigned):从内存加载一个字节，但不进行符号扩展(即零扩展到32位)，然后存入目的寄存器。]{.underline}**
 
-***
+    5.  **[LHU(Load Half-word
+        Unsigned):从内存加载半字(两个字节)，但不进行符号扩展(即零扩展到32位)，然后存入目的寄存器。]{.underline}**
+
+    6.  **[SLTI(Set Less Than
+        Immediate):将源寄存器的值与立即数比较，如果源寄存器的值小于立即数，则目的寄存器设为1，否则设为0]{.underline}**
+
+    7.  **[SLTIU(Set Less Than Immediate
+        Unsigned):无符号比较版本的SLTI，将源寄存器的值与[进行符号位扩展后的立即数]{.mark}比较，[比较时均视为无符号数]{.mark}。]{.underline}**
+
+    8.  **[XORI(XOR
+        Immediate):执行源寄存器的值与立即数的异或(XOR)操作，并将结果(0/1)存入目的寄存器。]{.underline}**
+
+    9.  **[ORI(OR
+        Immediate):执行源寄存器的值与立即数的逻辑或操作，并将结果存入目的寄存器(rd)]{.underline}**
+
+    10. **[SRLI(Shift Right Logical
+        Immediate):将源寄存器的值逻辑右移指定的位数(由立即数给出)，并将结果存入目的寄存器]{.underline}**
+
+    11. **[SRAI(Shift Right Arithmetic
+        Immediate):将源寄存器的值算术右移指定的位数(由立即数给出)，并将结果存入目的寄存器。算术右移会保留符号位。]{.underline}**
+
+    12. **[LW(Load Word):从内存中加载一个字到寄存器。]{.underline}**
+
+    13. **[ADDI(Add
+        Immediate):将源寄存器的值与立即数相加。]{.underline}**
+
+    14. **[ANDI(AND
+        Immediate):执行源寄存器的值与立即数的逻辑与操作。]{.underline}**
+
+    15. **[SLLl(Shift Left Logical
+        Immdiate):将源寄存器的值向左逻辑移指定的位。]{.underline}**
+
+    16. **[CSR(Control and Status
+        Register)访问指令:用于读取和修改控制和状态寄存器的值。控制和状态寄存器]{.underline}**
+
+3.  S型: 存储数据到内存
+
+    S型操作的立即数需要重新组合，在其他的类型是rd(目标寄存器)的位置，S型操作在该位置是imm\[4:0\]，instr\[31:25\]是imm\[11:5\]。
+
+    1.  **[SB(Store Byte):存储一个字节到内存]{.underline}**
+
+    2.  **[SH(Store Half word):存储半字(2字节)到内存]{.underline}**
+
+    3.  **[SW(Store Word):存储一个字(4字节)到内存。]{.underline}**
+
+4.  B型: 条件分支操作
+
+    根据寄存器之间的比较结果来决定是否跳转到程序中的另一个位置。
+
+    [B-Type默认imm\[0\]=0]{.mark}
+
+    1.  **[BEQ(Branch if
+        Equal):如果两个寄存器的值相等，则跳转。]{.underline}**
+
+    2.  **[BNE(Branch if Not
+        Equal):如果两个寄存器的值不相等，则跳转。]{.underline}**
+
+    3.  **[BLT(Branch if Less
+        Than)):如果第一个寄存器的值小于第二个寄存器的值(有符号比较)，则跳转。]{.underline}**
+
+    4.  **[BGE(Branch if Greater or
+        Equal):如果第一个寄存器的值大于等于第二个寄存器的值(有符号比较)，则跳转。]{.underline}**
+
+    5.  **[BLTU(Branch if Less Than
+        Unsigned):无符号比较版本的BLT]{.underline}**
+
+    6.  **[BGEU(Branch if Greater or Equal
+        Unsigned):无符号比较版本的BGE]{.underline}**
+
+5.  U型: 加载大的立即数到寄存器
+
+    通过观察其他类型格式可以发现，U型指令将32位指令空间中的20位(imm\[31:12\])用于立即数，这使得它们可以用于构建大的常数或者作为跳转和其他指令的基地址。
+
+    1.  **[LIU:加载上位立即数:20位立即数，这部分立即数在执行LUI时直接加载到目标寄存器的高20位剩下的12位清零]{.underline}**
+
+    2.  **[AUIPC:添加立即数到PC:将20位立即数左移12位(也就是说，将其作为高20位)，然后将结果加到当前PC值上，结果存储在目的寄存器中。]{.underline}**
+
+6.  J型: 无条件跳转操作
+
+    JAL指令格式中立即数(imm20)部分并非按照指令给定的顺序，具体顺序可见Instruction
+    set
+
+    1.  **[JAL(Jump and
+        Link):无条件跳转到程序指定的位置，同时将JAL的下一条指令保存到rd寄存器中]{.underline}**
+
+        1.  **[JAL rd, imm21 imm21\[0\]=0]{.underline}**
+
+            1.  **[Target=PC+sign-extend(imm21)]{.underline}**
+
+            2.  **[GPR(rd)=PC+4]{.underline}**
+
+            3.  **[PC\<\--Target]{.underline}**
+
+                每种格式都固定为32位长度，**[不同之处在于操作码、寄存器地址和立即数字段的分配方式。]{.underline}**
+
+                [逻辑移位与算术移位\*]{.mark}：
+
+                逻辑移位将二进制数的所有位向左或向右移动指定的位数，移入的位置用0填充。
+
+                **[逻辑左移(Shift Left
+                Logical,SLL):]{.underline}**向左移位时，最左边的位被移出，并且在最右边移入0。每向左移动一位，相当于乘以2。
+
+                **[逻辑右移(Shift Right
+                Logical,SRL):]{.underline}**向右移位时，最右边的位被移出，并且在最左边移入0。每向右移动一位，相当于除以2，但不保留余数。
+
+                **[算术左移(Shift Left Arithmetic
+                ,SLA):]{.underline}**与逻辑左移相同，因为对于有符号数和无符号数而言左移的效果是一致的，即乘以2，最右边移入0。
+
+                **[算术右移(Shift Right
+                Arithmetic,SRA):]{.underline}**向右移位时，最右边的位被移出，但最左边移入的是原来最左边的位的值(即符号位的值)，这保持了数的符号不变。对于负数(通常用补码表示)，这意味着在最左边移入1;对于正数，则移入0。
+
+                [地址对齐\*：]{.mark}
+
+                [内存地址对齐是计算机在内存中的数据排列、访问数据的方式，包含了**[基本数据对齐]{.underline}**和**[结构体数据对齐]{.underline}**的两种相互独立又相互关联的部分。现代计算机在内存中读写数据是按**[字节块]{.underline}**进行操作，理论上任意类型的变量访问可以从任何地址开始，但是计算机系统对任意数据类型在内存中存放位置有限，它会要求这些数据的首地址的值为K(4位或者8位)的整数倍。]{.mark}
+
+                [如在32位操作系统中，数据总线宽度32，每次读取4字节，地址总线宽度为32，故最大寻址空间为2\^32=4GB，但是最低位A\[0\]、A\[1\]不用寻址，A\[2\]、A\[3\]才能与存储器相连，总的寻址位还是2\^30=4GB。在内存中存放的基本数据类型的首地址的最低两位都是0(结构体中的成员变量除外)。]{.mark}
+
+                [**[基本类型数据对齐]{.underline}**是数据在内存中的偏移地址必须为一个字的整数倍，这种存储数据的方式，可以提升系统在读取数据时的性能。]{.mark}
+
+                [在结构体中为了对齐数据，可能必须在上一个数据结束和下一个数据开始的地方填充一些不必要的字节。]{.mark}
+
+                Different Pairing with JALR
+
+                ***[与LUI配合:]{.underline}***实现对任意32位绝对地址的跳转。
+
+                ***[与AUIPC配合:]{.underline}***实现对任意32位PC相对地址的跳转。
+
+                **[JALR与LUI指令配合使用：]{.underline}**
+
+                LUI指令用于将一个20位的立即数加载到寄存器的高20位，同时将低12位置零。这允许我们设置寄存器中几乎任何32位值的高部分。
+
+                当与JALR指令配合使用时，你首先可以使用LUI指令将目标地址的高20位设置到某个寄存器(比如rs1)，接着使用JALR指令，通过添加一个相对小的偏移量(12位立即数)，跳转到整个32位地址空间内几乎任意的绝对地址。这种方法允许程序跳转到32位地址空间内的任意位置。
+
+                **[JALR与AUIPC指令配合使用：]{.underline}**
+
+                AUIPC指令用于将20位的立即数左移12位(形成高20位立即数)，加上当前PC值，结果存入指定寄存器。这样，我们可以得到一个相对于当前PC的偏移地址。当与JALR指令配合使用时，首先可以使用AUIPC指令计算出一个基于当前PC的偏移目标地址并将该地址存入寄存器。然后，通过JALR指令跳转到这个寄存器指定的地址，可以是程序内存空间内相对于当前PC的任意位置。这种方法适用于实现基于PC的相对跳转，特别是在处理大范围内的跳转时非常有效。
+
+                举个例子：
+
+                假设我们想要跳转到绝对地址0x12345678。这个地址超出了JALR指令直接指定的立即数偏移量范围，但我们可以先用LUI和一个立即操作来设置这个地址。
+
+                ![](images/image4.png)
+                首先使用LUI将目标地址的高20位加载到寄存器\`x1·中，然后使用ADDI指令添加剩余的低12位。最后，使用JALR指令无条件跳转到这个地址。
+
+                ![](images/image5.png)
+                假设我们现在的PC地址为0x10000000我们想要跳转到当前PC地址向前(或向后)某个偏移量的位置，例如0x10001000
+
+                AUIPC指令将当前PC的值(假设为0x10000000)加上0x1000(因为立即数被左移了12位)，计算出新的地址并存入x1。然后，JALR指令使用x1寄存器的值作为跳转地址，实现了相对于当前PC的跳转。
+
 **Footnotes**
 
 The footnotes in the page will be returned following this line, return to the section on <a href="#footnotes">Markdown Footnotes</a>.
