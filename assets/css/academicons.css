@@ -569,3 +569,11 @@ border-radius: .1em;
 .ai-inverse {
   color: #fff;
 }
+.avatar {
+  vertical-align: middle;
+  width: 100px;
+  height: auto;
+  position: relative;
+    overview: hidden;
+  border-radius: 50%;
+}
