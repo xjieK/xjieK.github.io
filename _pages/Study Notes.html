@@ -1,0 +1,13 @@
+---
+layout: archive
+title: "StudyNotes"
+permalink: /studynotes/
+author_profile: true
+---
+
+{% include base_path %}
+
+# to link the documents under _studynotes folder
+{% for post in site.studynotes reversed %}
+  {% include archive-single.html %}
+{% endfor %}
