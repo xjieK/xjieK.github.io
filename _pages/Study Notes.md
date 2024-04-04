@@ -1,6 +1,6 @@
 ---
-permalink: /markdown/
-title: "Markdown"
+permalink: /Study Notes/
+title: "Study Notes"
 author_profile: true
 redirect_from: 
   - /md/
