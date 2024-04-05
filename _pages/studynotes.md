@@ -71,6 +71,7 @@ General Purpose Register(GPR)通用寄存器
 4.  执行
 5.  存储结果
 6.  确定下一步指令
+
 **RISC-V指令格式**
 ![](../images/image3.png)
 结合Instruction
