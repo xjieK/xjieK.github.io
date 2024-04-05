@@ -176,6 +176,7 @@ RISC-V指令有几种基本格式，每种格式都是为了满足不同类型�
  **Different Pairing with JALR**
  
  *<u> 与LUI配合: </u>* 实现对任意32位绝对地址的跳转。
+ 
  *<u> 与AUIPC配合: </u>* 实现对任意32位PC相对地址的跳转。
  
  **JALR与LUI指令配合使用：**
