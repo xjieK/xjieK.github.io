@@ -92,6 +92,9 @@ RISC-V指令有几种基本格式，每种格式都是为了满足不同类型�
                 如果寄存器rs1中的值小于寄存器rs2中的值，那么目的寄存器rd被设置为1，否则设置为0。<span style="background-color: #add8e6;"> **均为有符号数比较** </span>**
     7.  **SLL(Shift Left Logical):<span style="background-color: yellow;">逻辑左移 </span>，将一个寄存器的值向左移动指定的位数，右边空出的位用0填充。**
 2.  **<u> I型: 单个寄存器与立即数之间的操作 </u>**
+
+    有的**I-Type**操作没有立即数，有立即数的**I-Type**操作位数是12，imm[11:0]
+   
     1.  **JALR(Jump and Link Register):无条件跳转到由基址寄存器和立即数偏移量确定的地址，同时将下一条指令的地址保存到目的寄存器。常用于实现函数返回。**
         1.  **JALR rd, rs1, imm12**
             1.  **Target=GPR(rs1)+sign-extend(imm12)#计算跳转目标地址**
@@ -118,9 +121,10 @@ RISC-V指令有几种基本格式，每种格式都是为了满足不同类型�
     14. **ANDI(AND Immediate):执行源寄存器的值与立即数的逻辑与操作。**
     15. **SLLl(Shift Left Logical Immdiate):将源寄存器的值向左逻辑移指定的位。**
     16. **CSR(Control and Status Register)访问指令:用于读取和修改控制和状态寄存器的值。控制和状态寄存器。**
+
 3. **<u> S型: 存储数据到内存 </u>**
 
-    S型操作的立即数需要重新组合，在其他的类型是rd(目标寄存器)的位置，S型操作在该位置是imm\[4:0\]，instr\[31:25\]是imm\[11:5\]。
+    S型操作的立即数需要重新组合，在其他的类型是rd(目标寄存器)的位置，S型操作在该位置是imm\[4:0\]，instr\[31:25\]是imm\[11:5\]。**12位立即数**
 
     1.  **SB(Store Byte):存储一个字节到内存。**
     2.  **SH(Store Half word):存储半字(2字节)到内存。**
@@ -129,7 +133,7 @@ RISC-V指令有几种基本格式，每种格式都是为了满足不同类型�
 
     根据寄存器之间的比较结果来决定是否跳转到程序中的另一个位置。
     
-    <span style="background-color: #add8e6;"> **B-Type默认imm\[0\]=0** </span>
+    <span style="background-color: #add8e6;"> **B-Type默认imm\[0\]=0** </span> **B-Type** 有13位立即数
     1.  **BEQ(Branch if Equal):如果两个寄存器的值相等，则跳转。**
     2.  **BNE(Branch if Not Equal):如果两个寄存器的值不相等，则跳转。**
     3.  **BLT(Branch if Less Than)):如果第一个寄存器的值小于第二个寄存器的值(有符号比较)，则跳转。**
@@ -144,7 +148,7 @@ RISC-V指令有几种基本格式，每种格式都是为了满足不同类型�
     2.  **AUIPC:添加立即数到PC:将20位立即数左移12位(也就是说，将其作为高20位)，然后将结果加到当前PC值上，结果存储在目的寄存器中。**
 6.  **<u> J型: 无条件跳转操作 </u>**
 
-    JAL指令格式中立即数(imm20)部分并非按照指令给定的顺序，具体顺序可见Instruction set
+    JAL指令格式中立即数(imm20)部分并非按照指令给定的顺序，具体顺序可见Instruction set，有**20位立即数**
     
     1.  **JAL(Jump and Link):无条件跳转到程序指定的位置，同时将JAL的下一条指令保存到rd寄存器中。**
         1.  **JAL rd, imm21 imm21\[0\]=0**
