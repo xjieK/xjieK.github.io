@@ -87,13 +87,13 @@ RISC-V指令有几种基本格式，每种格式都是为了满足不同类型�
     6.  **SLT(Set Less Than):如果一个寄存器中的值小于另一个寄存器中的值，则将1写入目的寄存器，否则写入0。**
         1.  **SLT rd, rs1, rs2**
             1.  **rs1 \< rs2 ? GPR(rd)=1 : GPR(rd)=0
-                如果寄存器rs1中的值小于寄存器rs2中的值，那么目的寄存器rd被设置为1，否则设置为0。(均为有符号数比较)**
-    7.  **SLL(Shift Left Logical):逻辑左移\*，将一个寄存器的值向左移动指定的位数，右边空出的位用0填充。**
+                如果寄存器rs1中的值小于寄存器rs2中的值，那么目的寄存器rd被设置为1，否则设置为0。<span style="background-color: blue;">均为有符号数比较 </span>**
+    7.  **SLL(Shift Left Logical):<span style="background-color: yellow;">逻辑左移 </span>，将一个寄存器的值向左移动指定的位数，右边空出的位用0填充。**
 2.  I型: 单个寄存器与立即数之间的操作
     1.  **JALR(Jump and Link Register):无条件跳转到由基址寄存器和立即数偏移量确定的地址，同时将下一条指令的地址保存到目的寄存器。常用于实现函数返回。**
         1.  **JALR rd, rs1, imm12**
             1.  **Target=GPR(rs1)+sign-extend(imm12)#计算跳转目标地址**
-            2.  **Target&=0xFFFFFFFE#按位与(AND)操作清除目标地址最低位，确保地址按2的倍数对齐(地址对齐\***)
+            2.  **Target&=0xFFFFFFFE#按位与(AND)操作清除目标地址最低位，确保地址按2的倍数对齐<span style="background-color: yellow;">地址对齐 </span>**
             3.  **GPR(rd)=PC+4#保存跳转指令的后一条指令**
             4.  **PC\<\--Target#实现无条件跳转**
     2.  **LB(Load Byte):从内存加载一个字节，并符号扩展到32位，然后存入目的寄存器。**
@@ -106,7 +106,7 @@ RISC-V指令有几种基本格式，每种格式都是为了满足不同类型�
     4.  **LBU(Load Byte Unsigned):从内存加载一个字节，但不进行符号扩展(即零扩展到32位)，然后存入目的寄存器。**
     5.  **LHU(Load Half-word Unsigned):从内存加载半字(两个字节)，但不进行符号扩展(即零扩展到32位)，然后存入目的寄存器。**
     6.  **SLTI(Set Less Than Immediate):将源寄存器的值与立即数比较，如果源寄存器的值小于立即数，则目的寄存器设为1，否则设为0。**
-    7.  **SLTIU(Set Less Than Immediate Unsigned):无符号比较版本的SLTI，将源寄存器的值与进行符号位扩展后的立即数比较，比较时**均视为无符号数**。**
+    7.  **SLTIU(Set Less Than Immediate Unsigned):无符号比较版本的SLTI，将源寄存器的值与<span style="background-color: blue;">进行符号位扩展后的立即数比较 </span>，比较时<span style="background-color: blue;">均视为无符号数 </span>。**
     8.  **XORI(XOR Immediate):执行源寄存器的值与立即数的异或(XOR)操作，并将结果(0/1)存入目的寄存器。**
     9.  **[ORI(OR Immediate):执行源寄存器的值与立即数的逻辑或操作，并将结果存入目的寄存器(rd)。**
     10. **SRLI(Shift Right Logical Immediate):将源寄存器的值逻辑右移指定的位数(由立即数给出)，并将结果存入目的寄存器。**
@@ -123,7 +123,7 @@ RISC-V指令有几种基本格式，每种格式都是为了满足不同类型�
     3.  **SW(Store Word):存储一个字(4字节)到内存。**
 4.  B型: 条件分支操作
     根据寄存器之间的比较结果来决定是否跳转到程序中的另一个位置。
-    B-Type默认imm\[0\]=0
+    <span style="background-color: blue;">B-Type默认imm\[0\]=0 </span>
     1.  **BEQ(Branch if Equal):如果两个寄存器的值相等，则跳转。**
     2.  **BNE(Branch if Not Equal):如果两个寄存器的值不相等，则跳转。**
     3.  **BLT(Branch if Less Than)):如果第一个寄存器的值小于第二个寄存器的值(有符号比较)，则跳转。**
@@ -144,7 +144,7 @@ RISC-V指令有几种基本格式，每种格式都是为了满足不同类型�
             3.  **PC\<\--Target**
  每种格式都固定为32位长度，**不同之处在于操作码、寄存器地址和立即数字段的分配方式。**
 
- **逻辑移位与算术移位：**
+ <span style="background-color: yellow;">**逻辑移位与算术移位：** </span>
  
  逻辑移位将二进制数的所有位向左或向右移动指定的位数，移入的位置用0填充。
 
@@ -164,7 +164,7 @@ RISC-V指令有几种基本格式，每种格式都是为了满足不同类型�
  
 向右移位时，最右边的位被移出，但最左边移入的是原来最左边的位的值(即符号位的值)，这保持了数的符号不变。对于负数(通常用补码表示)，这意味着在最左边移入1;对于正数，则移入0。
  
- **地址对齐：** 
+ <span style="background-color: yellow;">**地址对齐：** </span>
  
  内存地址对齐是计算机在内存中的数据排列、访问数据的方式，包含了**基本数据对齐**和**结构体数据对齐**的两种相互独立又相互关联的部分。现代计算机在内存中读写数据是按**字节块**进行操作，理论上任意类型的变量访问可以从任何地址开始，但是计算机系统对任意数据类型在内存中存放位置有限，它会要求这些数据的首地址的值为K(4位或者8位)的整数倍。
  
