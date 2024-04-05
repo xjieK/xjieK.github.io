@@ -77,6 +77,9 @@ General Purpose Register(GPR)通用寄存器
 结合Instruction
 set和RISC-V指令格式可以看出每个类型下具体操作的Opcode都是一样的(除了U-Type和J-Type，U-Type两个操作：LIU和AUIPC需要更多位立即数imm\[31:12\]，靠Opcode区分，J-Type只有JAL)，而其他类型的不同操作依靠func3区分(除了R-Type，func3只有3-bit，最多表示8个不同的操作，而R-Type有10个操作，所以需要额外一个func7(7-bit)区分)。
 RISC-V指令有几种基本格式，每种格式都是为了满足不同类型操作的需求而设计。这些格式包括:
+
+<span style="background-color: #ffcccc;">I will not illustrate all semantics of operations, I just explain some complex semantics, the viewer can check rest in PowerPoint of lecture.</sapn>
+
 1.  **<u> R型: 用于寄存器间的算术和逻辑操作 </U>**
 
     Reg-Reg操作，直接在寄存器之间进行数据处理，不涉及立即数或内存访问
