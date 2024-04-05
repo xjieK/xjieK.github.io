@@ -61,7 +61,6 @@ General Purpose Register(GPR)通用寄存器
 ![image2](../images/image2.png)
 
 1.  取指
-
 2.  解码
 3.  取操作数
 4.  执行
