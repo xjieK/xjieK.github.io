@@ -32,8 +32,8 @@ fields.(根据前面的问题，一条指令需要有两个功能：1.
 **Opcodes(操作码):** the operation to be applied on the operand.
 ### An ISA (or architecture) includes:
 1.  A set of instructions.
-2.  A set of programmer visible properties (registers, memory
-    addressing, memory model, I/O, interruption/exception)
+2.  A set of programmer visible properties (registers, memory addressing, memory model, I/O, interruption/exception)
+
 ### Three types of instruction:
 1.  Computational 计算(Reg-Reg, also called ALU(arithmetic logic
     unit)instruction)
@@ -44,6 +44,7 @@ fields.(根据前面的问题，一条指令需要有两个功能：1.
     Procedure call/return),
     **控制流指令决定了程序中下一条指令执行的是什么。**它跳转到的目的地对应于另一个过程，在被调用过程(被调用者)完成时，它必须
     返回到调用过程(调用者).
+    
 ### Program Counter(PC):
 1.  A special register
 2.  它是用于跟踪处理器正在执行的当前指令的位置
