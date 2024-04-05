@@ -8,7 +8,7 @@ author_profile: true
 {% include base_path %}
 
 # L4: ISA(指令集架构)
-**all images is captured from Macau University of Science and Technology CS230 course
+**all images is captured from Macau University of Science and Technology CS230 course**
 ## Review:
 In the past lectures, we have learned how to ***represent
 data*** and perform concrete ***arithmetic
