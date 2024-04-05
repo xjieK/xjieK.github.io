@@ -209,4 +209,4 @@ RISC-V指令有几种基本格式，每种格式都是为了满足不同类型�
 
 
  **RISC-V Register Usage Convention：**
- 
+ ![](../images/image6.png)
