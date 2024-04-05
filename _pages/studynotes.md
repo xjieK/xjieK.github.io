@@ -86,8 +86,6 @@ General Purpose Register(GPR)通用寄存器
 
 ### 程序执行的步骤:
 
-![](images/image2.png)
-
 1.  取指
 
 2.  解码
