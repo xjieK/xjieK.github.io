@@ -77,7 +77,7 @@ General Purpose Register(GPR)通用寄存器
 结合Instruction
 set和RISC-V指令格式可以看出每个类型下具体操作的Opcode都是一样的(除了U-Type和J-Type，U-Type两个操作：LIU和AUIPC需要更多位立即数imm\[31:12\]，靠Opcode区分，J-Type只有JAL)，而其他类型的不同操作依靠func3区分(除了R-Type，func3只有3-bit，最多表示8个不同的操作，而R-Type有10个操作，所以需要额外一个func7(7-bit)区分)。
 RISC-V指令有几种基本格式，每种格式都是为了满足不同类型操作的需求而设计。这些格式包括:
-1.  <u> R型: 用于寄存器间的算术和逻辑操作 </U>
+1.  **<u> R型: 用于寄存器间的算术和逻辑操作 </U>**
     Reg-Reg操作，直接在寄存器之间进行数据处理，不涉及立即数或内存访问
     1.  **ADD:将两个寄存器的值相加。**
     2.  **SUB:从一个寄存器的值中减去另一个寄存器的值。**
@@ -89,7 +89,7 @@ RISC-V指令有几种基本格式，每种格式都是为了满足不同类型�
             1.  **rs1 \< rs2 ? GPR(rd)=1 : GPR(rd)=0
                 如果寄存器rs1中的值小于寄存器rs2中的值，那么目的寄存器rd被设置为1，否则设置为0。<span style="background-color: #add8e6;"> **均为有符号数比较** </span>**
     7.  **SLL(Shift Left Logical):<span style="background-color: yellow;">逻辑左移 </span>，将一个寄存器的值向左移动指定的位数，右边空出的位用0填充。**
-2.  <u> I型: 单个寄存器与立即数之间的操作 </u>
+2.  **<u> I型: 单个寄存器与立即数之间的操作 </u>**
     1.  **JALR(Jump and Link Register):无条件跳转到由基址寄存器和立即数偏移量确定的地址，同时将下一条指令的地址保存到目的寄存器。常用于实现函数返回。**
         1.  **JALR rd, rs1, imm12**
             1.  **Target=GPR(rs1)+sign-extend(imm12)#计算跳转目标地址**
@@ -116,12 +116,12 @@ RISC-V指令有几种基本格式，每种格式都是为了满足不同类型�
     14. **ANDI(AND Immediate):执行源寄存器的值与立即数的逻辑与操作。**
     15. **SLLl(Shift Left Logical Immdiate):将源寄存器的值向左逻辑移指定的位。**
     16. **CSR(Control and Status Register)访问指令:用于读取和修改控制和状态寄存器的值。控制和状态寄存器。**
-3. <u> S型: 存储数据到内存 </u>
+3. **<u> S型: 存储数据到内存 </u>**
     S型操作的立即数需要重新组合，在其他的类型是rd(目标寄存器)的位置，S型操作在该位置是imm\[4:0\]，instr\[31:25\]是imm\[11:5\]。
     1.  **SB(Store Byte):存储一个字节到内存。**
     2.  **SH(Store Half word):存储半字(2字节)到内存。**
     3.  **SW(Store Word):存储一个字(4字节)到内存。**
-4.  <u> B型: 条件分支操作 </u>
+4.  **<u> B型: 条件分支操作 </u>**
     根据寄存器之间的比较结果来决定是否跳转到程序中的另一个位置。
     <span style="background-color: #add8e6;"> **B-Type默认imm\[0\]=0** </span>
     1.  **BEQ(Branch if Equal):如果两个寄存器的值相等，则跳转。**
@@ -130,11 +130,11 @@ RISC-V指令有几种基本格式，每种格式都是为了满足不同类型�
     4.  **BGE(Branch if Greater or Equal):如果第一个寄存器的值大于等于第二个寄存器的值(有符号比较)，则跳转。**
     5.  **BLTU(Branch if Less Than Unsigned):无符号比较版本的BLT。**
     6.  **BGEU(Branch if Greater or Equal Unsigned):无符号比较版本的BGE。**
-5.  <u> U型: 加载大的立即数到寄存器 </u>
+5.  **<u> U型: 加载大的立即数到寄存器 </u>**
     通过观察其他类型格式可以发现，U型指令将32位指令空间中的20位(imm\[31:12\])用于立即数，这使得它们可以用于构建大的常数或者作为跳转和其他指令的基地址。
     1.  **LIU:加载上位立即数:20位立即数，这部分立即数在执行LUI时直接加载到目标寄存器的高20位剩下的12位清零。**
     2.  **AUIPC:添加立即数到PC:将20位立即数左移12位(也就是说，将其作为高20位)，然后将结果加到当前PC值上，结果存储在目的寄存器中。**
-6.  <u> J型: 无条件跳转操作 </u>
+6.  **<u> J型: 无条件跳转操作 </u>**
     JAL指令格式中立即数(imm20)部分并非按照指令给定的顺序，具体顺序可见Instruction
     set
     1.  **JAL(Jump and Link):无条件跳转到程序指定的位置，同时将JAL的下一条指令保存到rd寄存器中。**
