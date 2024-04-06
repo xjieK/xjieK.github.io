@@ -1,7 +1,7 @@
 ---
 layout: archive
-title: "studynotes"
-permalink: /studynotes/
+title: "Computer Organization"
+permalink: /computer organization/
 author_profile: true
 ---
 
