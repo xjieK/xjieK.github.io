@@ -13,3 +13,4 @@ author_profile: true
 {% endfor %}
 
 
+[click to download the mind mapping of Probability and Statistics](../assets/Probability_and_Statistics.pdf)
