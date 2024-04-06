@@ -214,6 +214,9 @@ collections:
   Computer Organization:
     output: true
     permalink: /:collection/:path/
+  Probability and Statistics:
+    output: true
+    permalink: /:collection/:path/
 
 
 # Defaults
@@ -275,6 +278,17 @@ defaults:
   - scope:
       path: ""
       type: Computer Organization
+    values:
+      layout: single
+      author_profile: true
+      read_time: true
+      comment: true
+      share: true
+      related: true
+  # _Probability and Statistics
+  - scope:
+      path: ""
+      type: Probability and Statistics
     values:
       layout: single
       author_profile: true
