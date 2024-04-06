@@ -211,7 +211,7 @@ collections:
   talks:
     output: true
     permalink: /:collection/:path/
-  studynotes:
+  Computer Organization:
     output: true
     permalink: /:collection/:path/
 
@@ -271,10 +271,10 @@ defaults:
       layout: talk
       author_profile: true
       share: true
-  # _studynotes
+  # _Computer Organization
   - scope:
       path: ""
-      type: studynotes
+      type: Computer Organization
     values:
       layout: single
       author_profile: true
