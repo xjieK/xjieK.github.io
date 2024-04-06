@@ -7,10 +7,4 @@ author_profile: true
 
 {% include base_path %}
 
-
-{% for post in site.probability and statistics reversed %}
-  {% include archive-single.html %}
-{% endfor %}
-
-
 [click to download the mind mapping of Probability and Statistics](../assets/Probability_and_Statistics.pdf)
