@@ -22,16 +22,19 @@ operations*** to be applied on these data?
 1.  **找到数据在哪**
 2.  **"告诉"计算机对这些数据的具体操作**
 ## Concepts of ISA:
-An instruction tells a computer to perform a specific operation, and it
-comprises of multiple binary
-fields.(根据前面的问题，一条指令需要有两个功能：1.
-告诉计算机要进行的操作，2.要对哪些数据操作)
+An instruction tells a computer to perform a specific operation, and it comprises of multiple binary fields.
+
+**根据前面的问题，一条指令需要有两个功能：**
+> - 1.告诉计算机要进行的操作
+> - 2.要对哪些数据操作
+
 **Operands(操作数):** the data to be operated.
 > -Source operands
 >
 > -Destination operands
 
 **Opcodes(操作码):** the operation to be applied on the operand.
+
 ### An ISA (or architecture) includes:
 1.  A set of instructions.
 2.  A set of programmer visible properties (registers, memory addressing, memory model, I/O, interruption/exception)
