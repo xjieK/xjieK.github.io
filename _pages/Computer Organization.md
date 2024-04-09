@@ -285,3 +285,9 @@ dynamic又称heap，动态内存分配(malloc)通常从堆区域进行。内存�
 
 ## Basic Calling Convention
 ![](../images/image9.png)
+
+
+# L6: Pipelining(流水线)
+
+
+
