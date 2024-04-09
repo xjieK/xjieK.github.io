@@ -21,6 +21,7 @@ operations*** to be applied on these data?
 ### Problem:
 1.  **找到数据在哪**
 2.  **"告诉"计算机对这些数据的具体操作**
+
 ## Concepts of ISA:
 An instruction tells a computer to perform a specific operation, and it comprises of multiple binary fields.
 
