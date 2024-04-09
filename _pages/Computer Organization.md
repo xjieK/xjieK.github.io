@@ -194,7 +194,7 @@ RISC-V指令有几种基本格式，每种格式都是为了满足不同类型�
   **基本类型数据对齐** 是数据在内存中的偏移地址必须为一个字的整数倍，这种存储数据的方式，可以提升系统在读取数据时的性能。
   在结构体中为了对齐数据，可能必须在上一个数据结束和下一个数据开始的地方填充一些不必要的字节。
   
- **Different Pairing with JALR**
+ ## Different Pairing with JALR
  
  *<u> 与LUI配合: </u>* 实现对任意32位绝对地址的跳转。
  
@@ -216,7 +216,7 @@ RISC-V指令有几种基本格式，每种格式都是为了满足不同类型�
  AUIPC指令将当前PC的值(假设为0x10000000)加上0x1000(因为立即数被左移了12位)，计算出新的地址并存入x1。然后，JALR指令使用x1寄存器的值作为跳转地址，实现了相对于当前PC的跳转。
 
 
- **RISC-V Register Usage Convention：**
+ ## RISC-V Register Usage Convention：
  ![](../images/image6.png)
 
  **RISC-V有32个通用寄存器(GPR)，每个寄存器与处理器位宽相同。**
@@ -244,7 +244,7 @@ RISC-V指令有几种基本格式，每种格式都是为了满足不同类型�
 
 但是，如果caller函数在调用返回后仍然需要这些寄存器中的值，那么它需要在调用callee函数之前自行保存这些寄存器的值，并在调用返回后恢复它们。
 
-**Memory Usage Convention:**
+## Memory Usage Convention:
 ![](../images/image7.png)
 
 **1.数据对齐**
@@ -271,7 +271,7 @@ dynamic又称heap，动态内存分配(malloc)通常从堆区域进行。内存�
 
 这是程序的机器代码存储的位置。在某些系统中，代码区域可能被设置为只读，以防止程序在运行时被修改。
 
-**RISC-V properties:**
+## RISC-V properties:
 ![](../images/image8.png)
 
 ## Rule-of-thumb(经验法则)
