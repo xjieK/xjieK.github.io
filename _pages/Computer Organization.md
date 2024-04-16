@@ -27,13 +27,13 @@ author_profile: true
     <div class="toc">
         <strong>Contents</strong>
         <ul>
-            <li><a href="#l4-isa">L4: ISA</a></li>
-            <li><a href="#l6-pipeline">L6: Pipeline</a></li>
+            <li><a href="#l4-isa">L4: ISA(指令集架构)</a></li>
+            <li><a href="#l6-pipeline">L6: Pipeline(流水线)</a></li>
         </ul>
     </div>
 </div>
 
-## <a href="#l4-isa">L4: ISA(指令集架构)</a>
+## L4: ISA(指令集架构)
 
 ## Review:
 In the past lectures, we have learned how to ***represent
@@ -310,7 +310,7 @@ dynamic又称heap，动态内存分配(malloc)通常从堆区域进行。内存�
 ![](../images/image9.png)
 
 
-## <a href="#l6-pipeline">L6: Pipeline(流水线)</a>
+## L6: Pipeline(流水线)
 
 
 ## L7: Cache(缓存)
