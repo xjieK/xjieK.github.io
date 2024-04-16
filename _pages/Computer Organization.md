@@ -33,7 +33,7 @@ author_profile: true
     </div>
 </div>
 
-## L4: ISA(指令集架构)
+## <a href="#l6-pipeline">L4: ISA(指令集架构)</a>
 
 ## Review:
 In the past lectures, we have learned how to ***represent
