@@ -27,8 +27,8 @@ author_profile: true
     <div class="toc">
         <strong>Contents</strong>
         <ul>
-            <li><a href="#l4-isa">L4: ISA(指令集架构)</a></li>
-            <li><a href="#l6-pipeline">L6: Pipeline(流水线)</a></li>
+            <li><a href="#l4-isa指令集架构">L4: ISA(指令集架构)</a></li>
+            <li><a href="#l6-pipeline流水线">L6: Pipeline(流水线)</a></li>
         </ul>
     </div>
 </div>
