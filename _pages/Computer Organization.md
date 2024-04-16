@@ -33,7 +33,7 @@ author_profile: true
     </div>
 </div>
 
-## <a href="#l6-pipeline">L4: ISA(指令集架构)</a>
+## <a href="#l4-isa">L4: ISA(指令集架构)</a>
 
 ## Review:
 In the past lectures, we have learned how to ***represent
@@ -310,7 +310,7 @@ dynamic又称heap，动态内存分配(malloc)通常从堆区域进行。内存�
 ![](../images/image9.png)
 
 
-## L6: Pipeline(流水线)
+## <a href="#l6-pipeline">L6: Pipeline(流水线)</a>
 
 
 ## L7: Cache(缓存)
