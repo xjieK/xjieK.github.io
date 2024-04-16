@@ -14,9 +14,7 @@ author_profile: true
 2. # [L6: Pipelining(流水线)](#l6-pipeline)
 3. # [L7: Cache(缓存)](#l7-cache)
 
-
 ## <a id="l4-isa">L4: ISA(指令集架构)</a>
-
 
 ## Review:
 In the past lectures, we have learned how to ***represent
@@ -297,3 +295,5 @@ dynamic又称heap，动态内存分配(malloc)通常从堆区域进行。内存�
 
 
 ## <a id="l7-cache">L7: Cache(缓存)</a>
+
+
