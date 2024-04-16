@@ -9,8 +9,8 @@ author_profile: true
 
 <span style="background-color: yellow;">**some images is captured from Macau University of Science and Technology CS230 course**</span>
 
-## <a id="l4-isa">L4: ISA</a>
-## <a id="l6-pipeline">L6: Pipeline</a>
+## <a id="l4-isa">L4: IS(指令集架构)A</a>
+## <a id="l6-pipeline">L6: Pipeline(流水线)</a>
 
 # [L4: ISA(指令集架构)](#l4-isa)
 
