@@ -9,12 +9,31 @@ author_profile: true
 
 <span style="background-color: yellow;">**some images is captured from Macau University of Science and Technology CS230 course**</span>
 
-# Table of Contents
-1. # [L4: ISA(指令集架构)](#l4-isa)
-2. # [L6: Pipelining(流水线)](#l6-pipeline)
-3. # [L7: Cache(缓存)](#l7-cache)
+<style>
+    #toc-container {
+        position: fixed;
+        right: 10px;
+        top: 10px;
+        width: 200px;
+        background: white;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+</style>
 
-## <a id="l4-isa">L4: ISA(指令集架构)</a>
+<div id="toc-container">
+    <div class="toc">
+        <strong>目录</strong>
+        <ul>
+            <li><a href="#l4-isa">L4: ISA</a></li>
+            <li><a href="#l6-pipeline">L6: Pipeline</a></li>
+        </ul>
+    </div>
+</div>
+
+## L4: ISA(指令集架构)
 
 ## Review:
 In the past lectures, we have learned how to ***represent
@@ -291,9 +310,9 @@ dynamic又称heap，动态内存分配(malloc)通常从堆区域进行。内存�
 ![](../images/image9.png)
 
 
-## <a id="l6-pipeline">L6: Pipeline(流水线)</a>
+## L6: Pipeline(流水线)
 
 
-## <a id="l7-cache">L7: Cache(缓存)</a>
+## L7: Cache(缓存)
 
 
