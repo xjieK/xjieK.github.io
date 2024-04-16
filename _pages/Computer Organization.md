@@ -25,7 +25,7 @@ author_profile: true
 
 <div id="toc-container">
     <div class="toc">
-        <strong>目录</strong>
+        <strong>Contents</strong>
         <ul>
             <li><a href="#l4-isa">L4: ISA</a></li>
             <li><a href="#l6-pipeline">L6: Pipeline</a></li>
