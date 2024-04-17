@@ -7,6 +7,37 @@ author_profile: true
 
 {% include base_path %}
 
+<style>
+    html {
+        scroll-behavior: smooth;
+    }
+    #toc-container {
+        position: fixed;
+        right: 10px;
+        top: 10px;
+        width: 200px;
+        background: white;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    document.querySelectorAll('#toc-container a').forEach(function(link) {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = link.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                targetElement.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    });
+});
+</script>
 
 {% for post in site.computer organization reversed %}
   {% include archive-single.html %}
