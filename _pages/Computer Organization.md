@@ -241,7 +241,7 @@ RISC-V指令有几种基本格式，每种格式都是为了满足不同类型�
  AUIPC指令将当前PC的值(假设为0x10000000)加上0x1000(因为立即数被左移了12位)，计算出新的地址并存入x1。然后，JALR指令使用x1寄存器的值作为跳转地址，实现了相对于当前PC的跳转。
 
 
- ## RISC-V Register Usage Convention：
+## RISC-V Register Usage Convention：
  ![](../images/image6.png)
 
  **RISC-V有32个通用寄存器(GPR)，每个寄存器与处理器位宽相同。**
