@@ -329,3 +329,5 @@ Programs tend to use data and instructions with addresses near or equal to those
 ## Hit and Miss(命中与未命中)
 
 ![](../images/image11.png)
+
+![](../images/image12.png)
