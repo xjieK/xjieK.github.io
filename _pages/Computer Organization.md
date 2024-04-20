@@ -354,4 +354,7 @@ Programs tend to use data and instructions with addresses near or equal to those
 
 如上图使用的是内存地址的最低两位(LSB[1:0])与缓存建立映射关系，地址0x11<span style="background-color: #add8e6;">10</span>中的数据将会被存储在缓存地址中的(index)<span style="background-color: #90EE90;">10</span>。
 
-主存地址通常被分为几个部分
+主存地址中会存在多个LSB相同的部分，如0x00<span style="background-color: #add8e6;">10</span>、0x10<span style="background-color: #add8e6;">10</span>、0x11<span style="background-color: #add8e6;">10</span>等，它们的LSB[1:0]都是<span style="background-color: #90EE90;">10</span>，那么如何确定对应缓存部分index <span style="background-color: #90EE90;">10</span>中的数据是来自于主存哪个地址的数据？
+
+所有LSB[1:0]相同的主存地址中的数据都可以映射到Cache中的同一区域，缓存中每个部分会有一个标记(Tag)来指定数据对应主存地址的上半部分
+
