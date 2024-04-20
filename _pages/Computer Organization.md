@@ -297,7 +297,6 @@ dynamic又称heap，动态内存分配(malloc)通常从堆区域进行。内存�
 
 
 # L7: Cache
-
 ## What is Cache
 
 **Cache**: A **smaller, faster** storage device for temporarily holding a subset of data from a larger, slower device.
@@ -331,3 +330,16 @@ Programs tend to use data and instructions with addresses near or equal to those
 ![](../images/image11.png)
 
 ![](../images/image12.png)
+
+* 如果请求的数据在Cache(缓存)中找到，这就是一个Hit(命中)
+* 如果数据不在缓存中，这就是Miss(未命中)，系统则需要从访存速度较慢的存储(如主内存)中检索数据，并将其加载到缓存中，这个过程涉及到缓存放置策略和替换策略，放置策略决定了这些数据应该放在缓存中的哪个位置，而替换策略决定了哪些数据应当被替换以便为新数据腾出空间。
+
+## Hit Rate
+命中率定义为缓存请求中命中的比例，即在所有缓存访问请求中，成功从缓存中获取所需数据的比例。如果命中率高，说明缓存的效率高，绝大多数的数据访问都可以直接从缓存中完成。
+## Miss Rate
+未命中率是命中率的补数，定义为缓存请求中未命中的比例，即在所有缓存访问请求中，需要从更低级别的存储（如主内存）检索数据的比例。未命中率高意味着缓存效率低。
+`miss rate = 1 - hit rate`
+## Hit Time
+命中时间是指从缓存中访问数据所需的时间。这包括搜索缓存标签确定数据是否存在于缓存中的时间，以及从缓存中读取数据的时间。
+## Miss Penalty
+未命中惩罚是指当缓存未命中时，从更低级别的存储中检索数据所需的额外时间。这包括访问主内存的时间，以及可能的额外延迟，如数据传输时间和任何需要的数据处理时间。未命中惩罚通常远大于命中时间。
