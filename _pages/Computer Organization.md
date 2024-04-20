@@ -293,10 +293,10 @@ dynamic又称heap，动态内存分配(malloc)通常从堆区域进行。内存�
 ![](../images/image9.png)
 
 
-# L6: Pipeline(流水线)
+# L6: Pipeline
 
 
-# L7: Cache(缓存)
+# L7: Cache
 
 ## What is Cache
 
