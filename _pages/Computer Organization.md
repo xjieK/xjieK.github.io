@@ -318,9 +318,9 @@ When a program accesses main memory(DRAM), the latency is much higher relative t
 Programs tend to use data and instructions with addresses near or equal to those they have used recently
 
 > - Temporal Locality(时间局部性)
-> -     1. Recently referenced items are likely to be referenced again in the near future
+> -     'Recently referenced items are likely to be referenced again in the near future'
 > - Spatial Locality(空间局部性)
-> -     1. Items with nearby addresses tend to be referenced close together in time
+> -     'Items with nearby addresses tend to be referenced close together in time'
 
 **局部性原理**描述的是程序在执行时对数据和指令的访问模式，**时间局部性**意味着一旦某些数据被访问，它们在未来短时间内很可能再次被访问。例如，程序中的循环结构可能多次读取或修改相同的变量。利用这种访问模式，缓存可以存储这些最近访问的数据，当数据再次被请求时，可以直接从高速缓存中获取，而不是从较慢的主存中读取。**空间局部性**是指当一个数据位置被访问时，其附近的数据位置也很可能被访问。这通常是由于数据在内存中是连续存储的，如数组元素或数据结构中相邻的部分。基于这种原理，缓存不仅会加载被直接请求的数据，还会预加载周围的数据，这样当这些附近的数据被访问时，它们已经在缓存中可用，从而减少了访问延迟。
 
