@@ -326,6 +326,11 @@ For computers, cache is a small SRAM(静态随机访问存储器) storage betwee
 
 When a program accesses main memory(DRAM), the latency is much higher relative to accessing registers or caches inside the CPU. As an intermediate storage layer between the CPU and main memory, the cache can store the most frequently used data and instructions, thereby significantly reducing the processor's waiting time when accessing these data.
 
+**we need create a memory with these properties**
+>- Faster
+>- smaller
+>- cheaper
+
 ## Principle of Locality
 
 Programs tend to use data and instructions with addresses near or equal to those they have used recently
