@@ -317,9 +317,9 @@ When a program accesses main memory(DRAM), the latency is much higher relative t
 Programs tend to use data and instructions with addresses near or equal to those they have used recently
 
 > - Temporal Locality(时间局部性)
-> - `Recently referenced items are likely to be referenced again in the near future`
+> - **`Recently referenced items are likely to be referenced again in the near future`**
 > - Spatial Locality(空间局部性)
-> - `Items with nearby addresses tend to be referenced close together in time`
+> - **`Items with nearby addresses tend to be referenced close together in time`**
 
 **局部性原理**描述的是程序在执行时对数据和指令的访问模式，**时间局部性**意味着一旦某些数据被访问，它们在未来短时间内很可能再次被访问。例如，程序中的循环结构可能多次读取或修改相同的变量。利用这种访问模式，缓存可以存储这些最近访问的数据，当数据再次被请求时，可以直接从高速缓存中获取，而不是从较慢的主存中读取。**空间局部性**是指当一个数据位置被访问时，其附近的数据位置也很可能被访问。这通常是由于数据在内存中是连续存储的，如数组元素或数据结构中相邻的部分。基于这种原理，缓存不仅会加载被直接请求的数据，还会预加载周围的数据，这样当这些附近的数据被访问时，它们已经在缓存中可用，从而减少了访问延迟。
 
@@ -332,7 +332,7 @@ Programs tend to use data and instructions with addresses near or equal to those
 ![](../images/image12.png)
 
 * 如果请求的数据在Cache(缓存)中找到，这就是一个Hit(命中)
-* 如果数据不在缓存中，这就是Miss(未命中)，系统则需要从访存速度较慢的存储(如主内存)中检索数据，并将其加载到缓存中，这个过程涉及到缓存放置策略和替换策略，放置策略决定了这些数据应该放在缓存中的哪个位置，而替换策略决定了哪些数据应当被替换以便为新数据腾出空间。
+* 如果数据不在缓存中，这就是Miss(未命中)，系统则需要从访存速度较慢的存储(如主内存)中检索数据，并将其加载到缓存中，这个过程涉及到<span style="background-color: #add8e6;">**缓存放置策略和替换策略**</span>，放置策略决定了这些数据应该放在缓存中的哪个位置，而替换策略决定了哪些数据应当被替换以便为新数据腾出空间。
 
 ## Hit Rate
 命中率定义为缓存请求中命中的比例，即在所有缓存访问请求中，成功从缓存中获取所需数据的比例。如果命中率高，说明缓存的效率高，绝大多数的数据访问都可以直接从缓存中完成。
@@ -344,3 +344,8 @@ Programs tend to use data and instructions with addresses near or equal to those
 命中时间是指从缓存中访问数据所需的时间。这包括搜索缓存标签确定数据是否存在于缓存中的时间，以及从缓存中读取数据的时间。
 ## Miss Penalty
 未命中惩罚是指当缓存未命中时，从更低级别的存储中检索数据所需的**额外时间**。这包括访问主内存的时间，以及可能的额外延迟，如数据传输时间和任何需要的数据处理时间。未命中惩罚通常远大于命中时间。
+
+**`so, Average Memory Access Time(AMAT)=Hit_Time + Miss_Penalty * Miss_Rate`**
+
+## Direct-Mapped Cache
+![](../images/image13.png)
