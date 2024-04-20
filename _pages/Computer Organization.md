@@ -27,14 +27,14 @@ author_profile: true
     <div class="toc">
         <strong>Contents</strong>
         <ul>
-            <li><a href="#l4-isa指令集架构">L4: ISA(指令集架构)</a></li>
-            <li><a href="#l6-pipeline流水线">L6: Pipeline(流水线)</a></li>
-            <li><a href="#l7-cache缓存">L7: Cache(缓存)</a></li>
+            <li><a href="#l4-isa">L4: ISA</a></li>
+            <li><a href="#l6-pipeline">L6: Pipeline</a></li>
+            <li><a href="#l7-cache">L7: Cache</a></li>
         </ul>
     </div>
 </div>
 
-# L4: ISA(指令集架构)
+# L4: ISA
 
 ## Review:
 In the past lectures, we have learned how to ***represent
@@ -44,82 +44,68 @@ So the next problem is How to ***locate these data*** to
 be processed, and how to tell the computer the ***concrete
 operations*** to be applied on these data?
 ## Problem:
-1.  **找到数据在哪**
-2.  **"告诉"计算机对这些数据的具体操作**
+1.  **Find where the data is**
+2.  **"Tell" the computer the specific operations on these data**
 
 ## Concepts of ISA:
 An instruction tells a computer to perform a specific operation, and it comprises of multiple binary fields.
 
-**根据前面的问题，一条指令需要有两个功能：**
-> - 1.告诉计算机要进行的操作
-> - 2.要对哪些数据操作
+**According to the previous question, an instruction needs to have two functions:**
+> - 1. Tell the computer what to do
+> - 2. What data to operate on?
 
-**Operands(操作数):** the data to be operated.
+**Operands:** the data to be operated.
 > -Source operands
 >
 > -Destination operands
 
-**Opcodes(操作码):** the operation to be applied on the operand.
+**Opcodes:** the operation to be applied on the operand.
 
 ## An ISA (or architecture) includes:
 1.  A set of instructions.
 2.  A set of programmer visible properties (registers, memory addressing, memory model, I/O, interruption/exception)
 
 ## Three types of instruction:
-1.  Computational 计算(Reg-Reg, also called ALU(arithmetic logic
-    unit)instruction)
-2.  Data movement 访存(e.g. load instruction(LW), store instruction(SW)
-    ), **加载指令(load
-    instruction)**将数据从内存传输到寄存器(register)中，由于**寄存器访问速度远快于内存**，因此通常在进行计算之前，需要先将数据加载到寄存器中。
-3.  Control flow 控制流(e.g. Conditional branch, Unconditional jump,
-    Procedure call/return),
-    **控制流指令决定了程序中下一条指令执行的是什么。**它跳转到的目的地对应于另一个过程，在被调用过程(被调用者)完成时，它必须
-    返回到调用过程(调用者).
+1.  Computational instruction(Reg-Reg, also called ALU(arithmetic logic unit))
+2.  Data movement(e.g. load instruction(LW), store instruction(SW)), **(load instruction)** Transfer data from memory to a register (register). Since register access is much faster than memory, data usually needs to be loaded into a register before calculations are performed.
+3.  Control flow(e.g. Conditional branch, Unconditional jump, Procedure call/return), **Control flow instructions determine what the next instruction in the program executes.** The destination to which it jumps corresponds to another process, and when the called process (callee) completes, it must return to the calling process (caller).
     
 ## Program Counter(PC):
 1.  A special register
-2.  它是用于跟踪处理器正在执行的当前指令的位置
-    在32位系统中，PC可以寻址2\^32个不同的字节地址，允许直接访问4GB的内存空间。而在64位系统中，它能访问的内存空间更多。
-    在ISA的设计中，操作数的位置在各种指令格式中保持**一致性**。这意味着无论执行的是**算术指令**、**逻辑指令**还是其他类型的指令，指令中操作数的位置(即编码中的位字段)都是相同的。这种设计有两个主要好处:
-      1.  Simplify circuit(简化电路，不需要对不同指令格式进行特殊处理来提取操作数)
+2.  It is used to track the location of the current instruction being executed by the processor.
+    In a 32-bit system, the PC can address 2\^32 different byte addresses, allowing direct access to 4GB of memory space. In a 64-bit system, it can access more memory space.
+    In the design of the ISA, the position of the operands is **consistent** across various instruction formats. This means that regardless of whether an arithmetic instruction, a logical instruction, or some other type of instruction is executed, the position of the operands in the instruction (i.e., the bit fields in the encoding) are the same. This design has two main benefits:
+      1.  Simplify circuit(Simplify the circuit and do not require special processing of different instruction formats to extract operands)
       2.  Enable fetch easy
 
 Instruction set:
     ![image1](../images/image1.png)
 ## RISC-V
-RISC-V是一种开发源代码的指令集架构(ISA)，是CS320课程使用的学习工具。
-对于RV32I来说，只有32个32-bit的寄存器(RV64有32个64-bit的寄存器).
-General Purpose Register(GPR)通用寄存器
+RISC-V is an instruction set architecture (ISA) for developing source code and is a learning tool used in the CS320 course.
+For RV32I, there are only 32 32-bit registers (RV64 has 32 64-bit registers).
+General Purpose Register (GPR) general purpose register
 
-## 程序执行的步骤:
+## Program execution steps:
 
 ![image2](../images/image2.png)
 
-1.  取指
-2.  解码
-3.  取操作数
-4.  执行
-5.  存储结果
-6.  确定下一步指令
-
-## RISC-V指令格式
+## RISC-V Instruction Formats
 ![](../images/image3.png)
-结合Instruction
-set和RISC-V指令格式可以看出每个类型下具体操作的Opcode都是一样的(除了U-Type和J-Type，U-Type两个操作：LIU和AUIPC需要更多位立即数imm\[31:12\]，靠Opcode区分，J-Type只有JAL)，而其他类型的不同操作依靠func3区分(除了R-Type，func3只有3-bit，最多表示8个不同的操作，而R-Type有10个操作，所以需要额外一个func7(7-bit)区分)。
-RISC-V指令有几种基本格式，每种格式都是为了满足不同类型操作的需求而设计。这些格式包括:
+Combining the Instruction set and the RISC-V instruction format, it can be seen that the Opcode of the specific operations under each type is the same (except for U-Type and J-Type, U-Type two operations: LIU and AUIPC require more bits of immediate data imm\[31:12\], distinguished by Opcode, J-Type only has JAL), while other types of different operations rely on func3 to distinguish (except R-Type, func3 only has 3-bit, representing up to 8 different operations, and R-Type has 10 operations, so an additional func7 (7-bit) is needed to distinguish).
+There are several basic formats of RISC-V instructions, each designed to meet the needs of different types of operations. These formats include:
 
 <span style="background-color: #ffcccc;">I will not illustrate all semantics of operations, I just explain some complex semantics, the viewer can check rest in PowerPoint of lecture.</span>
 
-1.  **<u> R型: 用于寄存器间的算术和逻辑操作 </U>**
+1.  **<u> R-Type: used for arithmetic and logical operations between registers </U>**
 
-    Reg-Reg操作，直接在寄存器之间进行数据处理，不涉及立即数或内存访问
+    Reg-Reg operations perform data processing directly between registers and do not involve immediate data or memory access.
     
-    1.  **ADD:将两个寄存器的值相加。**
-    2.  **SUB:从一个寄存器的值中减去另一个寄存器的值。**
-    3.  **AND:执行两个寄存器值之间的位与(AND)操作。**
-    4.  **OR:执行两个寄存器值之间的位或(OR)操作。**
-    5.  **XOR:执行两个寄存器值之间的位异或(XOR)操作。**
-    6.  **SLT(Set Less Than):如果一个寄存器中的值小于另一个寄存器中的值，则将1写入目的寄存器，否则写入0。**
+    1. **ADD: Add the values of two registers. **
+    2. **SUB: Subtract the value of one register from the value of another register. **
+    3. **AND: Performs a bitwise AND (AND) operation between two register values. **
+    4. **OR: Perform a bitwise OR (OR) operation between two register values. **
+    5. **XOR: Perform a bitwise exclusive OR (XOR) operation between two register values. **
+    6. **SLT (Set Less Than): If the value in one register is less than the value in another register, write 1 to the destination register, otherwise write 0. **
         1.  **SLT rd, rs1, rs2**
             1.  **rs1 \< rs2 ? GPR(rd)=1 : GPR(rd)=0
                 如果寄存器rs1中的值小于寄存器rs2中的值，那么目的寄存器rd被设置为1，否则设置为0。<span style="background-color: #add8e6;"> 均为有符号数比较 </span>**
