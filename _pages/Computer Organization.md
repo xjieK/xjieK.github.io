@@ -349,6 +349,7 @@ Programs tend to use data and instructions with addresses near or equal to those
 
 ## Direct-Mapped Cache
 ![](../images/image13.png)
+
 在直接映射缓存中，每个主存储器的块都有一个特定的缓存行与之对应。每个内存块使用地址的最低几位映射到缓存区域。
 
 如上图使用的是内存地址的最低两位(LSB[1:0])与缓存建立映射关系，地址0x11<span style="background-color: #add8e6;">10</span>中的数据将会被存储在缓存地址中的(index)<span style="background-color: #90EE90;">10</span>。
