@@ -34,7 +34,7 @@ author_profile: true
     </div>
 </div>
 
-## L4: ISA(指令集架构)
+# L4: ISA(指令集架构)
 
 ## Review:
 In the past lectures, we have learned how to ***represent
@@ -43,7 +43,7 @@ operations*** on data.
 So the next problem is How to ***locate these data*** to
 be processed, and how to tell the computer the ***concrete
 operations*** to be applied on these data?
-### Problem:
+## Problem:
 1.  **找到数据在哪**
 2.  **"告诉"计算机对这些数据的具体操作**
 
@@ -61,11 +61,11 @@ An instruction tells a computer to perform a specific operation, and it comprise
 
 **Opcodes(操作码):** the operation to be applied on the operand.
 
-### An ISA (or architecture) includes:
+## An ISA (or architecture) includes:
 1.  A set of instructions.
 2.  A set of programmer visible properties (registers, memory addressing, memory model, I/O, interruption/exception)
 
-### Three types of instruction:
+## Three types of instruction:
 1.  Computational 计算(Reg-Reg, also called ALU(arithmetic logic
     unit)instruction)
 2.  Data movement 访存(e.g. load instruction(LW), store instruction(SW)
@@ -76,7 +76,7 @@ An instruction tells a computer to perform a specific operation, and it comprise
     **控制流指令决定了程序中下一条指令执行的是什么。**它跳转到的目的地对应于另一个过程，在被调用过程(被调用者)完成时，它必须
     返回到调用过程(调用者).
     
-### Program Counter(PC):
+## Program Counter(PC):
 1.  A special register
 2.  它是用于跟踪处理器正在执行的当前指令的位置
     在32位系统中，PC可以寻址2\^32个不同的字节地址，允许直接访问4GB的内存空间。而在64位系统中，它能访问的内存空间更多。
@@ -91,7 +91,7 @@ RISC-V是一种开发源代码的指令集架构(ISA)，是CS320课程使用的�
 对于RV32I来说，只有32个32-bit的寄存器(RV64有32个64-bit的寄存器).
 General Purpose Register(GPR)通用寄存器
 
-### 程序执行的步骤:
+## 程序执行的步骤:
 
 ![image2](../images/image2.png)
 
@@ -311,9 +311,28 @@ dynamic又称heap，动态内存分配(malloc)通常从堆区域进行。内存�
 ![](../images/image9.png)
 
 
-## L6: Pipeline(流水线)
+# L6: Pipeline(流水线)
 
 
-## L7: Cache(缓存)
+# L7: Cache(缓存)
+
+## What is Cache
+
+**Cache**: A **smaller, faster** storage device for temporarily holding a subset of data from a larger, slower device.
+
+For computers, cache is a small SRAM(静态随机访问存储器) storage between the CPU and the main memory(DRAM(动态随机访问存储器))
+
+## Why we need an additional storage device
+
+When a program accesses main memory(DRAM), the latency is much higher relative to accessing registers or caches inside the CPU. As an intermediate storage layer between the CPU and main memory, the cache can store the most frequently used data and instructions, thereby significantly reducing the processor's waiting time when accessing these data.
+
+## Principle of Locality
+
+Programs tend to use data and instructions with addresses near or equal to those they have used recently
+
+> - Temporal Locality
+> -     Recently referenced items are likely to be referenced again in the near future
+> - Spatial Locality
+> -     Items with nearby addresses tend to be referenced close together in time
 
 
