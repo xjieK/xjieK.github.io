@@ -313,13 +313,15 @@ When a program accesses main memory(DRAM), the latency is much higher relative t
 >- smaller
 >- cheaper
 
-## Principle of Locality
+## Principle of Locality(局部性原理)
 
 Programs tend to use data and instructions with addresses near or equal to those they have used recently
 
-> - Temporal Locality
+> - Temporal Locality(时间局部性)
 > -     Recently referenced items are likely to be referenced again in the near future
-> - Spatial Locality
+> - Spatial Locality(空间局部性)
 > -     Items with nearby addresses tend to be referenced close together in time
+
+![](../images/image10.png)
 
 
