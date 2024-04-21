@@ -1,4 +1,4 @@
----
+![image](https://github.com/xjieK/xjieK.github.io/assets/163876092/f2ab1b82-49b3-4b16-9ca6-41fa2f19afe8)---
 layout: archive
 title: "Computer Organization"
 permalink: /computer organization/
@@ -359,4 +359,10 @@ Programs tend to use data and instructions with addresses near or equal to those
 ![](../images/image14.png)
 
 所有LSB[1:0]相同的主存地址中的数据都可以映射到Cache中的同一区域，缓存中每个部分会有一个**标记(Tag)** 来指定数据对应主存地址的上半部分
+
+![](../images/image15.png)
+
+此外，即使缓存**Tag**和**Index**匹配，我们如何知道数据是否有效？
+
+添加一个**valid bit**，**0**表示数据是invalid，**1**表示数据是valid
 
