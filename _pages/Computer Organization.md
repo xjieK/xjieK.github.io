@@ -379,6 +379,6 @@ Programs tend to use data and instructions with addresses near or equal to those
 图中每个缓存行有16个字节，当CPU查找一个特定的数据项时：
 1. 首先，它会计算出这个数据项所在的内存地址。
 2. CPU通过计算索引来确定数据应该位于哪一个缓存行。
-3. 通过判断地址中的Tag和Cache缓存行中的Tag是否相等，得出Hit/Miss，如图中地址Tag=<span style="background-color: #90EE90;">0b000000001110001100</span>，Cache Tag=<span style="background-color: #90EE90;">0x0038c</span>，它们的十进制数都是908。CPU可以直接从缓存中读取数据。
+3. 通过判断地址中的Tag和Cache缓存行中的Tag是否相等，得出Hit/Miss，如图中地址Tag=<span style="background-color: #90EE90;">0b000000001110001100</span>，Cache Tag=<span style="background-color: #90EE90;">0x0038c</span>，它们的十进制数都是<span style="background-color: #90EE90;">908</span>。CPU可以直接从缓存中读取数据。
 4. 如果该缓存行不在缓存中，发生“未命中”，则整个缓存块（从内存中该地址开始的16字节数据）被加载到缓存中。
 
