@@ -383,3 +383,6 @@ Programs tend to use data and instructions with addresses near or equal to those
 4. 如果该缓存行不在缓存中，发生“未命中”，则整个缓存块（从内存中该地址开始的16字节数据）被加载到缓存中。
 
 <span style="background-color: #add8e6;">**一个缓存块(也称为缓存行)** </span> 通常保存的不仅仅是内存中一个地址的数据，而是一段连续内存地址范围内的数据。这种设计是基于程序访问内存时的<span style="background-color: #add8e6;">空间局部性(Spatial Locality)原理</span>，当CPU需要从内存中读取数据时，它不只是读取单个地址中的数据。相反，它会读取包含所需数据的整个缓存块。这个缓存块包含了从特定起始地址开始的一系列连续字节。
+
+## Handling Writing Data to Memory
+当CPU更新Cache中的数据时(例如SW指令)，那么内存中的数据就与Cache中的数据不一致了，所有在写Cache数据时，同时也要更新内存中的数据
