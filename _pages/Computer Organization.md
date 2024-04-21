@@ -372,4 +372,4 @@ Programs tend to use data and instructions with addresses near or equal to those
 
 ![](../images/image17.png)
 
-内存地址有32位，根据给定地址A和Cache缓存大小2<sup>k</sup>，可以得出Cache index **`C=Amod2<sup>k</sup>`**
+内存地址有32位，根据给定地址A和Cache缓存大小2<sup>k</sup>，可以得出Cache index **`C=Amod2`<sup>`k`</sup>**
