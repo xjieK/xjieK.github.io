@@ -1,4 +1,3 @@
-![image](https://github.com/xjieK/xjieK.github.io/assets/163876092/f2ab1b82-49b3-4b16-9ca6-41fa2f19afe8)---
 layout: archive
 title: "Computer Organization"
 permalink: /computer organization/
