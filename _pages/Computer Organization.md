@@ -1,3 +1,4 @@
+---
 layout: archive
 title: "Computer Organization"
 permalink: /computer organization/
