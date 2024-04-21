@@ -372,4 +372,4 @@ Programs tend to use data and instructions with addresses near or equal to those
 
 ![](../images/image17.png)
 
-内存地址有32位，根据给定地址A和Cache缓存大小2<sup>k</sup>，可以得出Cache index **`C=Amod2`<sup>`k`</sup>**
+内存地址有32位，**块偏移(Block Offset)** 是用于在缓存行（也称为缓存块）内定位特定数据的部分地址。缓存行是缓存中的基本存储单位，通常包含多个连续的字节。**块偏移**用于指定要访问的数据位于其所在缓存行的哪个具体位置。图中每个缓存行有16个字节（即128位），则块偏移需要4位(2<sup>4</sup>=16)，由于缓存有1024个块，需要**10位**来索引这些块(因为2<sup>10</sup>=1024)，剩余32-4-10=18，**Tag**需要18位。
