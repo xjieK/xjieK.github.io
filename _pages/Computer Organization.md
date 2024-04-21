@@ -366,3 +366,5 @@ Programs tend to use data and instructions with addresses near or equal to those
 
 添加一个**valid bit**，**0**表示数据是invalid，**1**表示数据是valid
 
+![](../images/image16.png)
+
