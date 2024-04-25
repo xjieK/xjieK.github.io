@@ -25,7 +25,7 @@ author_profile: true
 #toc-container {
     position: fixed;
     right: 10px;
-    top: 10px;
+    top: 50px;
     width: 195px;
     background: white;
     padding: 10px;
@@ -36,8 +36,8 @@ author_profile: true
 }
 #toc-toggle {
     width: 100%;
-    padding: 15px;
-    margin-bottom: 15px;
+    padding: 5px;
+    margin-bottom: 5px;
     cursor: pointer;
 }
 </style>
