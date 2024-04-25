@@ -393,3 +393,10 @@ Programs tend to use data and instructions with addresses near or equal to those
 
 ## Handling Writing Data to Memory
 当CPU更新Cache中的数据时(例如SW指令)，那么内存中的数据就与Cache中的数据不一致了，所有在写Cache数据时，同时也要更新内存中的数据
+
+### Write through(直写)
+**直写**策略在数据被写入缓存时同时写入到主存储。这保证了缓存和主存储之间的数据一致性。<span style="background-color: #add8e6;">**优点**是实现简单且数据安全</span>，因为存储和缓存始终保持同步。然而，这种策略的<span style="background-color: #add8e6;">**缺点**是性能较低，因为每次缓存写入都必须等待慢速的主存储写入操作完成。</span>
+### Write Back(回写)
+**回写**策略只在数据被写入缓存时更新缓存，**不立即**写入主存储。主存储的更新发生在缓存行被替换或者在特定的同步操作发生时。这种方法可以显著提高写入性能，因为写入操作通常比读取主存储要快得多。缺点是在发生电源故障或系统崩溃时，可能会丢失尚未写回到主存储的数据。
+### Write allocate(写分配)
+**写分配**策略是指在写入未缓存的数据时，首先将这些数据载入到缓存中，然后执行写操作。这种策略通常与**Write Back(回写)** 策略结合使用，目的是利用缓存的高速特性来处理接下来可能的重复写入。相反的策略是非写分配（no-write-allocate），在此策略下，未缓存的数据直接写入主存储，不载入到缓存中。
