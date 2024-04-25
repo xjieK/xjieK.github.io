@@ -9,22 +9,9 @@ author_profile: true
 
 <span style="background-color: yellow;">**some images is captured from Macau University of Science and Technology CS230 course**</span>
 
-<style>
-    #toc-container {
-        position: fixed;
-        right: 10px;
-        top: 10px;
-        width: 195px;
-        background: white;
-        padding: 10px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-</style>
-
 <div id="toc-container">
-    <div class="toc">
+    <button id="toc-toggle" onclick="toggleTOC()">目录</button>
+    <div class="toc" style="display: none;">
         <strong>Contents</strong>
         <ul>
             <li><a href="#l4-isa">L4: ISA</a></li>
@@ -33,6 +20,39 @@ author_profile: true
         </ul>
     </div>
 </div>
+
+<style>
+#toc-container {
+    position: fixed;
+    right: 10px;
+    top: 10px;
+    width: 195px;
+    background: white;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    z-index: 1000;
+}
+#toc-toggle {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+</style>
+
+<script>
+function toggleTOC() {
+    var toc = document.querySelector('.toc');
+    if (toc.style.display === 'none') {
+        toc.style.display = 'block';
+    } else {
+        toc.style.display = 'none';
+    }
+}
+</script>
+
 
 # L4: ISA
 
