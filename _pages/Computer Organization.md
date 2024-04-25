@@ -36,8 +36,8 @@ author_profile: true
 }
 #toc-toggle {
     width: 100%;
-    padding: 5px;
-    margin-bottom: 5px;
+    padding: 15px;
+    margin-bottom: 15px;
     cursor: pointer;
 }
 </style>
