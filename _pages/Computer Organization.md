@@ -43,6 +43,14 @@ author_profile: true
 </style>
 
 <script>
+document.addEventListener('click', function(event) {
+    var tocContainer = document.getElementById('toc-container');
+    var tocContent = document.querySelector('.toc');
+    if (!tocContainer.contains(event.target)) {
+        tocContent.style.display = 'none';
+    }
+});
+
 function toggleTOC() {
     var toc = document.querySelector('.toc');
     if (toc.style.display === 'none') {
