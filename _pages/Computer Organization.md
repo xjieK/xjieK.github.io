@@ -25,7 +25,7 @@ author_profile: true
 #toc-container {
     position: fixed;
     right: 10px;
-    top: 50px;
+    top: 70px;
     width: 195px;
     background: white;
     padding: 10px;
