@@ -370,7 +370,11 @@ Programs tend to use data and instructions with addresses near or equal to those
 
 至此，Cache就被分成了四个部分。
 
-![](../images/image17.png)
+<figure>
+  <img src="../images/image17.png" alt="图17">
+  <figcaption style="text-align: center;">Cache示意图</figcaption>
+</figure>
+
 
 **块偏移(Block Offset)** 是用于在缓存行（也称为缓存块）内定位特定数据的部分地址。缓存行是缓存中的基本存储单位，通常包含多个连续的字节。**块偏移**用于指定要访问的数据位于其所在缓存行的哪个具体位置。上图中作用于MUX多路选择器，
 
@@ -379,10 +383,13 @@ Programs tend to use data and instructions with addresses near or equal to those
 图中每个缓存行有16个字节，当CPU查找一个特定的数据项时：
 1. 首先，它会计算出这个数据项所在的内存地址。
 2. CPU通过计算索引来确定数据应该位于哪一个缓存行。
-3. 通过判断地址中的Tag和Cache缓存行中的Tag是否相等，得出Hit/Miss，如图中地址Tag=<span style="background-color: #90EE90;">0b000000001110001100</span>，Cache Tag=<span style="background-color: #90EE90;">0x0038c</span>，它们的十进制数都是<span style="background-color: #90EE90;">908</span>。CPU可以直接从缓存中读取数据。
+3. 通过判断地址中的Tag和Cache缓存行中的Tag是否相等以及valid bit是否为1，得出Hit/Miss，如图中地址Tag=<span style="background-color: #90EE90;">0b000000001110001100</span>，Cache Tag=<span style="background-color: #90EE90;">0x0038c</span>，它们的十进制数都是<span style="background-color: #90EE90;">908</span>。CPU可以直接从缓存中读取数据。
 4. 如果该缓存行不在缓存中，发生“未命中”，则整个缓存块（从内存中该地址开始的16字节数据）被加载到缓存中。
 
 <span style="background-color: #add8e6;">**一个缓存块(也称为缓存行)** </span> 通常保存的不仅仅是内存中一个地址的数据，而是一段连续内存地址范围内的数据。这种设计是基于程序访问内存时的<span style="background-color: #add8e6;">空间局部性(Spatial Locality)原理</span>，当CPU需要从内存中读取数据时，它不只是读取单个地址中的数据。相反，它会读取包含所需数据的整个缓存块。这个缓存块包含了从特定起始地址开始的一系列连续字节。
+
+### Cache Capacity in Bits
+如上图所示，
 
 ## Handling Writing Data to Memory
 当CPU更新Cache中的数据时(例如SW指令)，那么内存中的数据就与Cache中的数据不一致了，所有在写Cache数据时，同时也要更新内存中的数据
