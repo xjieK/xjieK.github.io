@@ -448,6 +448,9 @@ Programs tend to use data and instructions with addresses near or equal to those
 
 ![](../images/image18.png)
 
+## For a cache with 8 entries
+![](../images/image19.png)
+
 **优点：**
 >- 减少了冲突：相对于直接映射缓存，组相联缓存减少了冲突，因为每个内存地址有多个可能的缓存位置。
 >- 硬件成本适中：需要的比较器数量少于全相联缓存，但多于直接映射缓存。
