@@ -329,7 +329,7 @@ dynamic又称heap，动态内存分配(malloc)通常从堆区域进行。内存�
 
 **Cache**: A **smaller, faster** storage device for temporarily holding a subset of data from a larger, slower device.
 
-For computers, cache is a small SRAM(静态随机访问存储器) storage between the CPU and the main memory(DRAM(动态随机访问存储器))
+For computers, cache is a small **SRAM(静态随机访问存储器)** storage between the CPU and the main memory(**DRAM(动态随机访问存储器)**)
 
 ## Why we need an additional storage device
 
