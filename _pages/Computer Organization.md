@@ -451,6 +451,8 @@ Programs tend to use data and instructions with addresses near or equal to those
 ## For a cache with 8 entries
 ![](../images/image19.png)
 
+对于一个固定大小的Cache，**关联性(associativity)增加一倍，每个集合的block增加一倍，集合的数量减少一半**。索引(index)减少一位，标记(Tag)增加一位。
+
 **优点：**
 >- 减少了冲突：相对于直接映射缓存，组相联缓存减少了冲突，因为每个内存地址有多个可能的缓存位置。
 >- 硬件成本适中：需要的比较器数量少于全相联缓存，但多于直接映射缓存。
