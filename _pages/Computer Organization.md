@@ -104,7 +104,14 @@ function toggleTOC() {
 (+1.8×10<sup>-38</sup>, +3.4×10<sup>38</sup>) and (-3.4×10<sup>38</sup>, -1.8×10<sup>-38</sup>)
 
 # L3: Computer Arithmetic
+## Binary Adder
+**加法：X+Y**
 
+**减法：X-Y**等价于**X+(inverse of Y)+1**(2's complement)
+
+**Overflow Problem**
+
+OF=C<sub>n</sub>⊕C<sub>n-1</sub>
 # L4: ISA
 
 ## Review:
