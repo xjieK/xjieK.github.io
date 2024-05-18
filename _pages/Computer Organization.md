@@ -14,6 +14,7 @@ author_profile: true
     <div class="toc" style="display: none;">
         <strong>Contents</strong>
         <ul>
+            <li><a href="#l2-data-representation">L2: Data Representation</a></li>
             <li><a href="#l4-isa">L4: ISA</a></li>
             <li><a href="#l6-pipeline">L6: Pipeline</a></li>
             <li><a href="#l7-cache">L7: Cache</a></li>
@@ -61,6 +62,29 @@ function toggleTOC() {
 }
 </script>
 
+# L2: Data Representation
+## 进制
+二进制(binary), 八进制(Octal), 十进制(decimal), 十六进制(hexadecimal)
+## 进制之间的相互转换
+4位二进制数代表1位十六进制数，2位十六进制数代表1 byte(字节)，1个字(word)代表4个字节(byte)
+## 字节的存储顺序(endianness)
+
+**Little Endianness**
+
+将字节的**低位**存储在内存地址中的低位。
+
+**Big Endianness**
+将字节的**高位**存储在内存地址中的低位。
+## 有符号数表示
+**2's complement**：取反后+1
+5：0101
+"0101"取反："1010"
+"1010"+1："1011"
+-5：1011
+## 浮点数表示
+**Floating-point standardization: IEEE 754**
+
+**single precision**：
 
 # L4: ISA
 
