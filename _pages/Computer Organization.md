@@ -118,6 +118,16 @@ OF=C<sub>n</sub>⊕C<sub>n-1</sub>
 **C<sub>i+1</sub>=X<sub>i</sub>Y<sub>i</sub>+(X<sub>i</sub>⊕Y<sub>i</sub>)C<sub>i</sub>**
 
 **S<sub>i</sub>=X<sub>i</sub>⊕Y<sub>i</sub>⊕C<sub>i</sub>**
+
+**1-bit binary adder**有5个logic gates
+
+**实现减法**只需要设置C<sub>0</sub>=1，并将减数与1进行异或操作(inverse of Y)。(2's complement)
+## Fast Binary Adder
+**Generate**：G<sub>i</sub>=X<sub>i</sub>Y<sub>i</sub>
+
+**Propagate**：P<sub>i</sub>=X<sub>i</sub>⊕Y<sub>i</sub>
+
+**C<sub>i+1</sub>=G<sub>i</sub>+P<sub>i</sub>C<sub>i</sub>**
 # L4: ISA
 
 ## Review:
