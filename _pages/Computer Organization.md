@@ -115,7 +115,7 @@ OF=C<sub>n</sub>⊕C<sub>n-1</sub>
 
 **1-bit binary adder**
 
-**C<sub>i+1</sub>=X<sub>i</sub>Y<sub>i</sub>+(X<sub>i</sub>⊕Y<sub>i</sub>)C<sub>i-1</sub>**
+**C<sub>i+1</sub>=X<sub>i</sub>Y<sub>i</sub>+(X<sub>i</sub>⊕Y<sub>i</sub>)C<sub>i</sub>**
 
 **S<sub>i</sub>=X<sub>i</sub>⊕Y<sub>i</sub>⊕C<sub>i</sub>**
 # L4: ISA
