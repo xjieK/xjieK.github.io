@@ -15,6 +15,7 @@ author_profile: true
         <strong>Contents</strong>
         <ul>
             <li><a href="#l2-data-representation">L2: Data Representation</a></li>
+            <li><a href="#l3-computer-arithmetic">L3: Computer Arithmetic</a></li>
             <li><a href="#l4-isa">L4: ISA</a></li>
             <li><a href="#l6-pipeline">L6: Pipeline</a></li>
             <li><a href="#l7-cache">L7: Cache</a></li>
@@ -99,9 +100,11 @@ function toggleTOC() {
 **bias**在single precision下，大小是2<sup>7</sup>-1=127
 
 **M**=Mantissa-1
-**Mantissa**
 ## Range the IEEE 754 can represent
 (+1.8×10<sup>-38</sup>, +3.4×10<sup>38</sup>) and (-3.4×10<sup>38</sup>, -1.8×10<sup>-38</sup>)
+
+# L3: Computer Arithmetic
+
 # L4: ISA
 
 ## Review:
