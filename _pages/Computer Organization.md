@@ -69,23 +69,39 @@ function toggleTOC() {
 4位二进制数代表1位十六进制数，2位十六进制数代表1 byte(字节)，1个字(word)代表4个字节(byte)
 ## 字节的存储顺序(endianness)
 
-**Little Endianness**
+**Little Endianness**：将字节的**低位**存储在内存地址中的低位。
 
-将字节的**低位**存储在内存地址中的低位。
-
-**Big Endianness**
-将字节的**高位**存储在内存地址中的低位。
+**Big Endianness**：将字节的**高位**存储在内存地址中的低位。
 ## 有符号数表示
 **2's complement**：取反后+1
+
 5：0101
+
 "0101"取反："1010"
+
 "1010"+1："1011"
+
 -5：1011
 ## 浮点数表示
 **Floating-point standardization: IEEE 754**
 
-**single precision**：
 
+**single precision**：S(1 bit), E(8 bit), M(23 bit). total: 32 bit->转换为16进制应有8位
+
+**double precision**：S(1 bit), E(11 bit), M(52 bit), total: 64 bit->转换为16进制应有16位
+
+**S**是符号位，0表示正数，1表示负数
+
+**E**=exponent+bias
+
+**exponent**是需要表示的数转化成二进制的科学计数法后的指数大小
+
+**bias**在single precision下，大小是2<sup>7</sup>-1=127
+
+**M**=Mantissa-1
+**Mantissa**
+## Range the IEEE 754 can represent
+(+1.8×10<sup>-38</sup>, +3.4×10<sup>38</sup>) and (-3.4×10<sup>38</sup>, -1.8×10<sup>-38</sup>)
 # L4: ISA
 
 ## Review:
