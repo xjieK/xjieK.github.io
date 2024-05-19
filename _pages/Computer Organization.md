@@ -135,7 +135,7 @@ CLA的输入是P和G，输出是C，是用来组合C的对应的P和G
 
 **C<sub>2</sub>=G<sub>2</sub>+p<sub>2</sub>C<sub>1</sub>**
 
-**CC<sub>2</sub>=G<sub>2</sub>+p<sub>2</sub>G<sub>1</sub>+p<sub>2</sub>P<sub>1</sub>C<sub>0</sub>**
+**C<sub>2</sub>=G<sub>2</sub>+p<sub>2</sub>G<sub>1</sub>+p<sub>2</sub>P<sub>1</sub>C<sub>0</sub>**
 ## n-bits binary adder
 **4-bits binary adder**有1个CLA
 **16-bits binary adder**有4个CLA
